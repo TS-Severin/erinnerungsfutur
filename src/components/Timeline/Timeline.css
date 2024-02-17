@@ -1,0 +1,5 @@
+.timeline-grid-container {
+  display: grid;
+  grid-template-columns: repeat(10, [col] 1fr);
+  background-color: red;
+}
