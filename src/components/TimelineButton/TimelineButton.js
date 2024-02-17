@@ -3,13 +3,13 @@ import styled from "styled-components";
 export default function TimelineButton() {
   return (
     <>
-      <StyledTimelineButton></StyledTimelineButton>
+      <StyledTimelineButton>hello</StyledTimelineButton>
     </>
   );
 }
 
 const StyledTimelineButton = styled.button`
-  grid-column: 10;
+  grid-column: 7;
   overflow: visible;
 `;
 
