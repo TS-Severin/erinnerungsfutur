@@ -1,6 +1,6 @@
 .timeline-grid-container {
   display: grid;
   grid-template-columns: repeat(365, [col] 1fr);
-  background-color: red;
   width: 100%;
+  border-top: 1px solid black;
 }
