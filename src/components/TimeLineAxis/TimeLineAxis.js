@@ -1,10 +1,11 @@
 import GetCurrentDayOfYearHelper from "@/services/GetCurrentDayOfYearHelper";
 import styled from "styled-components";
-
+import { useEffect } from "react";
 
 const dayCount = GetCurrentDayOfYearHelper();
 
 export default function TimelineAxis() {
+
 
     return (
         <StyledTimelineAxis />
