@@ -24,7 +24,9 @@ export default function TimelineButton({ id, date, color, slug }) {
 const StyledTimelineDot = styled.a`
   grid-column: ${(props) => props.dayoftheyear};
   overflow: visible;
-  transform: translateY(-1550%);
+  transform: translateY(0);
+  border: 1px solid blue;
+  
 `;
 
 

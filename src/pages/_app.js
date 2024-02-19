@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import "../components/Timeline/Timeline.css";
 import { SWRConfig } from "swr";
 
 export default function App({ Component, pageProps }) {
