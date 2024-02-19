@@ -1,4 +1,4 @@
-import { entries } from "../../../../assets/data.js";
+import { entries } from "../../../assets/data.js";
 
 export default function handler(request, response) {
   const { slug } = request.query;

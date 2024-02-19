@@ -2,7 +2,7 @@ import TimelineDot from "../TimelineDot/TimelineDot";
 import useSWR from "swr";
 
 export default function Timeline() {
-  const { data: entries } = useSWR("/api/entries");
+  const { data: entries } = useSWR("/api");
 
   //   if (error) return <div>Error fetching data</div>;
   //   if (!dates) return <div>Loading...</div>;

@@ -4,7 +4,7 @@ import useSWR from "swr";
 export default function DateDetailsPage() {
   const router = useRouter();
   const { slug } = router.query;
-  const { data, error } = useSWR(`/api/entries/${slug}`);
+  const { data, error } = useSWR(`/api/${slug}`);
   if (error) return <div>Error fetching data</div>;
   if (!data) return <div>Loading...</div>;
   const {title, author, datestring, text } = data;
