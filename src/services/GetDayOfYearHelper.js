@@ -1,4 +1,4 @@
-export default function getDayOfYearHelper(dateString) {
+export default function GetDayOfYearHelper(dateString) {
   // Parse the date string to create a Date object
   const date = new Date(dateString);
 

@@ -1,21 +1,18 @@
 import styled from "styled-components";
-import getDayOfYearHelper from "./GetDateOfYearHelper";
-import Image from "next/image";
-import pic from "../../../public/image.jpg"
+import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
+import styles from "./TimelineDot.module.scss"
+// import Image from "next/image";
+// import pic from "../../../public/image.jpg"
 
-export default function TimelineButton({ id, date, color, slug }) {
-  const dayOfTheYear = getDayOfYearHelper(date);
+export default function TimelineDot({ id, date, color, slug }) {
+  const dayOfTheYear = GetDayOfYearHelper(date);
 
   return (
     <>
         <StyledTimelineDot key={id}
         dayoftheyear={dayOfTheYear}
         color={color} 
-        href={`/${slug}`}><Image
-         src={pic}
-         width={15}
-         height={15}
-         alt="Picture of event" />
+        href={`/${slug}`}>
         </StyledTimelineDot>
     </>
   );
@@ -23,10 +20,14 @@ export default function TimelineButton({ id, date, color, slug }) {
 
 const StyledTimelineDot = styled.a`
   grid-column: ${(props) => props.dayoftheyear};
+  grid-row: 2;
   overflow: visible;
-  transform: translateY(0);
-  border: 1px solid blue;
+  transform: translateY(-60%);
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
   
 `;
-
 
