@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <h1>ERINNERUNGSFUTUR</h1>
-        <Timeline></Timeline>
+        <Timeline />
       </main>
     </>
   );
