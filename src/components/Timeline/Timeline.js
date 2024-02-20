@@ -20,7 +20,7 @@ export default function Timeline() {
     </div> */}
     <span className={styles.timelineLine}>
     </span>
-    <div className={styles.timelineGridContainer}>
+    <div className={styles.timelineDotContainer}>
       
       {entries &&
         entries.map(({ id, date, color, slug }) => (
