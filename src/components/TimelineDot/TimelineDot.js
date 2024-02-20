@@ -18,7 +18,7 @@ export default function TimelineDot({ id, date, color, slug }) {
   return (
     <>
         <StyledTimelineAxis/>
-        <StyledTodayAxisElement>hello
+        <StyledTodayAxisElement>
         </StyledTodayAxisElement>
         <StyledTimelineDot key={id}
         dayoftheyear={dayOfTheYear}
