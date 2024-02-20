@@ -15,9 +15,9 @@ export default function Timeline() {
   return (
     <>
     <div className={styles.timelineContainer}>
-    <div className={styles.timelineAxisContainer}>
-    <TimelineAxis />
-    </div>
+    {/* <div className={styles.timelineAxisContainer}>
+    <TimelineAxis title={title} />
+    </div> */}
     <span className={styles.timelineLine}>
     </span>
     <div className={styles.timelineGridContainer}>
