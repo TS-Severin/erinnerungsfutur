@@ -1,12 +1,12 @@
 import TimelineDot from "../TimelineDot/TimelineDot";
 import TimelineMonths from "../TimelineMonths/TimelineMonths";
-import TimelineAxis from "../TimelineAxis/TimelineAxis";
+import TimelineAxis from "../TimelineAxis/TimeLineAxis";
 import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
 export default function Timeline() {
   const { data: entries, isLoading } = useSWR("/api");
-
+ 
   //   if (error) return <div>Error fetching data</div>;
     if (isLoading) return <div>Loading...</div>;
 
@@ -15,9 +15,9 @@ export default function Timeline() {
   return (
     <>
     <div className={styles.timelineContainer}>
-    {/* <div className={styles.timelineAxisContainer}>
-    <TimelineAxis title={title} />
-    </div> */}
+    <div className={styles.timelineAxisContainer}>
+    <TimelineAxis />
+    </div>
     <span className={styles.timelineLine}>
     </span>
     <div className={styles.timelineDotContainer}>

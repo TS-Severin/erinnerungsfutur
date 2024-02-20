@@ -6,8 +6,8 @@ export default function GetDayOfYearHelper(dateString) {
   const startOfYear = new Date(date.getFullYear(), 0, 0);
   const diff = date - startOfYear;
   const oneDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diff / oneDay);
+  const percentOfYear = Math.floor(diff / oneDay) * 0.274;
 
-  // Add 1 since the day count starts from 0
-  return dayOfYear;
+  
+  return percentOfYear;
 }

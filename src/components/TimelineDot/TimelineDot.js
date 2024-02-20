@@ -3,13 +3,12 @@ import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 
 
 export default function TimelineDot({ id, date, color, slug }) {
-  const positionInYear = GetDayOfYearHelper(date);
-  console.log("Prozent im Jahr: ", positionInYear)
+  const percentOfYear = GetDayOfYearHelper(date);
   
   return (
     <>
         <StyledTimelineDot key={id}
-        $positionInYear={positionInYear}
+        $percentOfYear={percentOfYear}
         color={color} 
         href={`/${slug}`}>
         </StyledTimelineDot>
@@ -21,7 +20,9 @@ export default function TimelineDot({ id, date, color, slug }) {
 // grid-column: ${(props) => props.$positionInYear};
 // transform: translateX(${(props) => props.$positionInYear});
 const StyledTimelineDot = styled.a`
-transform: translateX(500%);
+position: absolute;
+left: ${(props) => props.$percentOfYear}%;
+transform: translateX(-50%);
 overflow: visible;
 height: 8px;
 width: 8px;
