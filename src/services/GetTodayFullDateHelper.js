@@ -1,4 +1,4 @@
-export default function GetTodayFullDate() {
+export default function GetTodayFullDateHelper() {
 const event = new Date();
 const options = {
   year: 'numeric',

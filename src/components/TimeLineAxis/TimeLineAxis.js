@@ -1,5 +1,6 @@
 import GetCurrentDayOfYearHelper from "@/services/GetCurrentDayOfYearHelper";
 import styled from "styled-components";
+import TodayAxisElement from "../TodayAxisElement/TodayAxisElement";
 
 const dayCount = GetCurrentDayOfYearHelper();
 
@@ -14,8 +15,11 @@ transform: translateY(+50%);
 `;
 
 
-export default function TimelineAxis() {
+export default function TimelineAxis({title, date}) {
     return (
+        <>
+        <TodayAxisElement title={title} date={date} />
         <StyledTimelineAxis />
+        </>
     );
 }
