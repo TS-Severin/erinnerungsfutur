@@ -13,13 +13,23 @@ export default function Timeline() {
   console.log("dates in timeline: ", entries);
 
   return (
+    <>
+    <div className={styles.timelineContainer}>
+    {/* <div className={styles.timelineAxisContainer}>
+    <TimelineAxis title={title} />
+    </div> */}
+    <span className={styles.timelineLine}>
+    </span>
     <div className={styles.timelineGridContainer}>
-      <TimelineAxis />
+      
       {entries &&
         entries.map(({ id, date, color, slug }) => (
           <TimelineDot key={id} date={date} color={color} slug={slug} />
         ))}
-        <TimelineMonths />
+   
     </div>
+    <div className={styles.timelineMonthContainer}><TimelineMonths /></div>
+    </div>
+    </>
   );
 }

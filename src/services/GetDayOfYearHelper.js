@@ -9,5 +9,5 @@ export default function GetDayOfYearHelper(dateString) {
   const dayOfYear = Math.floor(diff / oneDay);
 
   // Add 1 since the day count starts from 0
-  return dayOfYear + 1;
+  return dayOfYear;
 }
