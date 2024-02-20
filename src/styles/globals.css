@@ -87,7 +87,10 @@ body {
 
 body {
   color: black;
-  background: whitesmoke;
+  /* background-image: url("../../public/background_square.jpg"); */
+  background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
+  url("../../public/background_square.jpg");
+  background-size: cover;
 }
 
 a {
