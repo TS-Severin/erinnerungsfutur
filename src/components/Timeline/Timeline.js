@@ -5,10 +5,10 @@ import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
 export default function Timeline() {
-  const { data: entries } = useSWR("/api");
+  const { data: entries, isLoading } = useSWR("/api");
 
   //   if (error) return <div>Error fetching data</div>;
-  //   if (!dates) return <div>Loading...</div>;
+    if (isLoading) return <div>Loading...</div>;
 
   console.log("dates in timeline: ", entries);
 
