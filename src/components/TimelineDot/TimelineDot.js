@@ -18,15 +18,13 @@ export default function TimelineDot({ id, date, color, slug }) {
   return (
     <>
         <StyledTimelineAxis/>
-        <StyledTodayAxisElement>hello
+        <StyledTodayAxisElement>
         </StyledTodayAxisElement>
         <StyledTimelineDot key={id}
-        dayoftheyear={dayOfTheYear}
+        $dayoftheyear={dayOfTheYear}
         color={color} 
         href={`/${slug}`}>
         </StyledTimelineDot>
-        
-
     </>
   );
 }
@@ -34,7 +32,7 @@ export default function TimelineDot({ id, date, color, slug }) {
 // dot styled component
 
 const StyledTimelineDot = styled.a`
-grid-column: ${(props) => props.dayoftheyear};
+grid-column: ${(props) => props.$dayoftheyear};
 grid-row: 1;
 overflow: visible;
 transform: translateY(0);
@@ -55,7 +53,7 @@ height: 200px;
 overflow: visible;
 background-color: black;
 grid-row: 1;
-grid-column: ${dayCount};
+grid-column: 68;
 transform: translateY(0);
 justify-self: center;
 `;
