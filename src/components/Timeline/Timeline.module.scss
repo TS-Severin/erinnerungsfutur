@@ -8,9 +8,7 @@
 }
 
 .timelineDotContainer {
-  display: grid;
-  grid-template-columns: repeat(365, [col] 1fr);
-  grid-template-rows: 1;
+  display: flex;
   // height: 300px;
   width: 100%;
   border: 2px solid blue;
