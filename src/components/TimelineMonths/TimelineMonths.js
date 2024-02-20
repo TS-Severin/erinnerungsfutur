@@ -2,6 +2,7 @@ import styles from "./TimelineMonths.module.scss";
 
 export default function TimelineMonths() {
     const months = ["jan", "feb", "mar", "apr", "mai", "juni", "juli", "aug", "sept", "okt", "nov", "dez"]
+    
     return (
         <>
 <p className={`${styles.month} ${styles.jan}`}>jan</p>
