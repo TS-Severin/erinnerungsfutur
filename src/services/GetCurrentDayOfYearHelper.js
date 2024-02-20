@@ -10,5 +10,6 @@ const day = String(now.getDate()).padStart(2, '0');
 const formattedDate = `${year}-${month}-${day}`;
 console.log(formattedDate); // Output: "yyyy-mm-dd"
 const currentDayOfYear = GetDayOfYearHelper(formattedDate);
+// console.log(currentDayOfYear);
 return currentDayOfYear;
 }
