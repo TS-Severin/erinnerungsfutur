@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
-import styles from "./TimelineDot.module.scss"
 
 
 export default function TimelineDot({ id, date, color, slug }) {
-  const dayOfTheYear = GetDayOfYearHelper(date);
+  const positionInYear = GetDayOfYearHelper(date);
+  console.log("Prozent im Jahr: ", positionInYear)
   
   return (
     <>
         <StyledTimelineDot key={id}
-        $dayoftheyear={dayOfTheYear}
+        $positionInYear={positionInYear}
         color={color} 
         href={`/${slug}`}>
         </StyledTimelineDot>
@@ -18,14 +18,13 @@ export default function TimelineDot({ id, date, color, slug }) {
 }
 
 // dot styled component
-
+// grid-column: ${(props) => props.$positionInYear};
+// transform: translateX(${(props) => props.$positionInYear});
 const StyledTimelineDot = styled.a`
-grid-column: ${(props) => props.$dayoftheyear};
-grid-row: 1;
+transform: translateX(500%);
 overflow: visible;
-transform: translateY(0);
-height: 10px;
-width: 10px;
+height: 8px;
+width: 8px;
 background-color: red;
 border-radius: 50%;
 display: inline-block;
