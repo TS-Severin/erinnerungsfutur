@@ -2,7 +2,6 @@ import GetCurrentDayOfYearHelper from "@/services/GetCurrentDayOfYearHelper";
 import styled from "styled-components";
 
 const dayCount = GetCurrentDayOfYearHelper();
-console.log("=========",dayCount);
 
 const StyledTimelineAxis = styled.span`
 width: 1px;

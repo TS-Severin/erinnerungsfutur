@@ -1,3 +1,12 @@
+.timelineContainer {
+  width: 100%;
+  border: 2px solid black;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+}
+
 .timelineGridContainer {
   display: grid;
   grid-template-columns: repeat(365, [col] 1fr);
@@ -9,5 +18,29 @@
   justify-items: center;
 }
 
+.timelineLine {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
 
 
+.timelineAxisContainer {
+  display: grid;
+  grid-template-columns: repeat(365, [col] 1fr);
+  grid-template-rows: 3;
+  // height: 300px;
+  width: 100%;
+  // border: 1px solid black;
+  align-items: center;
+  justify-items: center;
+}
+
+.timelineMonthContainer {
+  display: grid;
+  grid-template-columns: repeat(365, [col] 1fr);
+  width: 100%;
+  // border: 1px solid black;
+  align-items: start;
+  justify-items: center;
+}
