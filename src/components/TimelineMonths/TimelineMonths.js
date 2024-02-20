@@ -12,6 +12,7 @@ export default function TimelineMonths() {
 <p className={`${styles.month} ${styles.juli}`}>juli</p>
 <p className={`${styles.month} ${styles.aug}`}>aug</p>
 <p className={`${styles.month} ${styles.sept}`}>sept</p>
+<p className={`${styles.month} ${styles.okt}`}>okt</p>
 <p className={`${styles.month} ${styles.nov}`}>nov</p>
 <p className={`${styles.month} ${styles.dez}`}>dez</p>
 </>
