@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { SWRConfig } from "swr";
+import Navigation from "@/components/Navigation/Navigation";
 
 export default function App({ Component, pageProps }) {
   const fetcher = async (...args) => {
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <SWRConfig value={{ fetcher }}>
+      <Navigation/>
       <Component {...pageProps} />;
     </SWRConfig>
   );
