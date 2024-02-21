@@ -45,7 +45,7 @@ position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 text-transform: uppercase;
-font-size: 0.7rem;
+font-size: 0.6rem;
 overflow: visible;
 display: inline-block;
 `;
