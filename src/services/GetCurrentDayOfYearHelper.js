@@ -8,3 +8,5 @@ const currentDayOfYear = GetDayOfYearHelper(formattedDate);
 // console.log(currentDayOfYear);
 return currentDayOfYear;
 }
+
+// current day of year in percent of the whole year

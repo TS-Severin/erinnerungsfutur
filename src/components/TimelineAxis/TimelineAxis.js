@@ -6,10 +6,10 @@ const StyledTimelineAxis = styled.span`
 position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
 width: 1px;
-height: 176px;
+height: 120px;
 overflow: visible;
 background-color: black;
-transform: translateY(50%);
+transform: translateY(150%);
 `;
 
 // const StyledTodayAxisElement = styled.p`

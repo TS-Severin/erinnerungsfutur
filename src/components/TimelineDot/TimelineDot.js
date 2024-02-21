@@ -30,4 +30,12 @@ background-color: red;
 border-radius: 50%;
 display: inline-block;
 justify-self: center;
+transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
+transition-timing-function: ease-out;
+&:hover {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  opacity: 0.5;
+}
 `;

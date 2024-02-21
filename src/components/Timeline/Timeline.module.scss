@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   height: 352px;
+  padding: 16px;
 }
 
 .timelineDotContainer {
@@ -15,7 +16,7 @@
   align-items: center;
   justify-items: center;
   position: relative;
-  top: 50%;
+  top: 80%;
 }
 
 .timelineLine {
@@ -23,20 +24,19 @@
   height: 1px;
   background-color: red;
   position: relative;
-  top: 50%;
+  top: 80%;
 }
 
 .timelineAxisContainer {
   display: flex;
   position: relative;
-  // height: 300px;
   width: 100%;
 }
 
 .timelineMonthContainer {
   width: 100%;
   position: relative;
-  top: 51%;
+  top: 81%;
   align-items: center;
   justify-items: center;
 }
