@@ -9,3 +9,5 @@ const options = {
 const today = event.toLocaleDateString('de-DE', options);
 return today
 }
+
+// formats today in full form in german: 12. Februar 2024

@@ -9,3 +9,5 @@ const day = String(now.getDate()).padStart(2, '0');
 const formattedDate = `${year}-${month}-${day}`;
 return formattedDate
 }
+
+// gets current date in yyyy-mm-dd form

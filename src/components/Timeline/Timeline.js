@@ -1,6 +1,7 @@
 import TimelineDot from "../TimelineDot/TimelineDot";
 import TimelineMonths from "../TimelineMonths/TimelineMonths";
 import TimelineAxis from "../TimelineAxis/TimelineAxis";
+import TimelineToday from "../TimelineToday/TimelineToday"
 import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
@@ -10,11 +11,10 @@ export default function Timeline() {
   //   if (error) return <div>Error fetching data</div>;
     if (isLoading) return <div>Loading...</div>;
 
-  console.log("dates in timeline: ", entries);
-
   return (
     <>
     <div className={styles.timelineContainer}>
+      <TimelineToday entries={entries}/>
     <div className={styles.timelineAxisContainer}>
     <TimelineAxis />
     </div>
