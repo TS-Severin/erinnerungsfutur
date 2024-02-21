@@ -1,22 +1,51 @@
-import styles from "./TimelineMonths.module.scss";
+import styled from "styled-components";
+import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
+
+
 
 export default function TimelineMonths() {
-    const months = ["jan", "feb", "mar", "apr", "mai", "juni", "juli", "aug", "sept", "okt", "nov", "dez"]
-    
+    const months = [
+        {month: "jan", dateToBeShown: "2024-1-15"}, 
+        {month: "feb", dateToBeShown: 
+        "2024-2-14"},
+        {month: "mar", dateToBeShown: "2024-3-15"},
+        {month: "apr", dateToBeShown: "2024-4-15"},
+        {month: "mai", dateToBeShown: "2024-5-16"},
+        {month: "juni", dateToBeShown: "2024-6-15"},
+        {month: "juli", dateToBeShown: "2024-7-15"},
+        {month: "aug", dateToBeShown: "2024-8-16"},
+        {month: "sept", dateToBeShown: "2024-9-14"},
+        {month: "okt", dateToBeShown: "2024-10-15"},
+        {month: "nov", dateToBeShown: "2024-11-14"},
+        {month: "dez", dateToBeShown: "2024-12-14"}
+    ]
+
+    const calculatePercentOfYear = (date) => {
+        return GetDayOfYearHelper(date)
+    };
+
     return (
         <>
-<p className={`${styles.month} ${styles.jan}`}>jan</p>
-<p className={`${styles.month} ${styles.feb}`}>feb</p>
-<p className={`${styles.month} ${styles.mar}`}>mar</p>
-<p className={`${styles.month} ${styles.apr}`}>apr</p>
-<p className={`${styles.month} ${styles.mai}`}>mai</p>
-<p className={`${styles.month} ${styles.juni}`}>juni</p>
-<p className={`${styles.month} ${styles.juli}`}>juli</p>
-<p className={`${styles.month} ${styles.aug}`}>aug</p>
-<p className={`${styles.month} ${styles.sept}`}>sept</p>
-<p className={`${styles.month} ${styles.okt}`}>okt</p>
-<p className={`${styles.month} ${styles.nov}`}>nov</p>
-<p className={`${styles.month} ${styles.dez}`}>dez</p>
-</>
+            {months.map(month => {
+                const percentOfYear = calculatePercentOfYear(month.dateToBeShown);
+                return (
+                    <StyledMonth key={month.month} $percentOfYear={percentOfYear}>
+                        {month.month}
+                    </StyledMonth>
+                    
+                );
+            })}
+
+        </>
     );
 }
+
+const StyledMonth = styled.p`
+position: absolute;
+left: ${(props) => props.$percentOfYear}%;
+transform: translateX(-50%);
+text-transform: uppercase;
+font-size: 0.6rem;
+overflow: visible;
+display: inline-block;
+`;
