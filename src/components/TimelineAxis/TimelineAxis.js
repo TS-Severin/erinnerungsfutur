@@ -19,7 +19,6 @@ transform: translateY(50%);
 
 export default function TimelineAxis({title, date}) {
     const currentPercentOfYear = GetCurrentDayOfYearHelper();
-    // console.log("ganzes Datum", todayFullDate);
     return (
         
         <>
