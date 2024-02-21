@@ -1,6 +1,6 @@
 import TimelineDot from "../TimelineDot/TimelineDot";
 import TimelineMonths from "../TimelineMonths/TimelineMonths";
-import TimelineAxis from "../TimelineAxis/TimeLineAxis";
+import TimelineAxis from "../TimelineAxis/TimelineAxis";
 import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
