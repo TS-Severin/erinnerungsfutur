@@ -1,8 +1,10 @@
 import "@/styles/globals.css";
 import { SWRConfig } from "swr";
 import Navigation from "@/components/Navigation/Navigation";
+import { useEffect } from "react";
 import { useState } from "react";
-import useLocalStorageState from "use-local-storage-state";
+import useSWR from "swr";
+
 
 export default function App({ Component, pageProps }) {
   const fetcher = async (...args) => {
@@ -13,25 +15,49 @@ export default function App({ Component, pageProps }) {
     return response.json();
   };
 
-// INITIALIZING STATE
+  const { data: entries = [], isLoading } = useSWR("/api");
+  const [previewIsClicked, setPreviewIsClicked] =
+    useState([]);
+  // do it once when loading
+  useEffect(() => {
+    if (entries.length > 0) {
+      const initialState = entries.map(entry => ({ id: entry.id, clicked: false }));
+      setPreviewIsClicked(initialState);
+    }
+  }, [entries]);
+  if (isLoading) return <div>Loading...</div>;
+  console.log("daten in app", entries);
 
-  // const [previewIsHovered, setPreviewIsHovered] = useState(false);
-  // const [previewIsClicked, setPreviewIsClicked] = 
-  // useLocalStorageState(
-  //   "previewIsClicked",
-  //   {
-  //     defaultValue: [false],
-  //   }
-  // );
+
+  // INITIALIZING STATE FOR PREVIEW
+
+
+
+  // SETTING CLICK STATE
+
+
+
+
+
+  // toggle state when clicking
+  const handlePreviewClick = (clickedId) => {
+    setPreviewIsClicked(prevState =>
+      prevState.map(entry => {
+        if (entry.id === clickedId) {
+          return { ...entry, clicked: !entry.clicked };
+        }
+        return entry;
+      })
+    );
+  };
+
+  console.log("status", previewIsClicked);
 
   return (
     <SWRConfig value={{ fetcher }}>
-      <Navigation/>
-      <Component {...pageProps} 
-      // previewIsHovered={previewIsHovered}
-      // previewIsClicked={previewIsClicked}
-      // setPreviewIsHovered={setPreviewIsHovered}
-      // setPreviewIsClicked={setPreviewIsClicked}
+      <Navigation />
+      <Component {...pageProps}
+        handlePreviewClick={handlePreviewClick}
       />;
     </SWRConfig>
   );
