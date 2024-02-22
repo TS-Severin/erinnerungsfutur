@@ -6,8 +6,7 @@ import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 export default function TimelineMonths() {
     const months = [
         {month: "jan", dateToBeShown: "2024-1-15"}, 
-        {month: "feb", dateToBeShown: 
-        "2024-2-14"},
+        {month: "feb", dateToBeShown: "2024-2-14"},
         {month: "mar", dateToBeShown: "2024-3-15"},
         {month: "apr", dateToBeShown: "2024-4-15"},
         {month: "mai", dateToBeShown: "2024-5-16"},

@@ -12,6 +12,7 @@ export default function TimelineDot({ id, date, color, slug }) {
   // Apply GSAP animation when the component mounts
   useGSAP(dotRef);
 
+
   return (
     <>
         <StyledTimelineDot key={id}
@@ -24,9 +25,7 @@ export default function TimelineDot({ id, date, color, slug }) {
   );
 }
 
-// dot styled component
-// grid-column: ${(props) => props.$positionInYear};
-// transform: translateX(${(props) => props.$positionInYear});
+
 const StyledTimelineDot = styled.a`
 position: absolute;
 left: ${(props) => props.$percentOfYear}%;
