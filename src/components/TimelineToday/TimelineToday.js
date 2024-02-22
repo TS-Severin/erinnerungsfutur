@@ -37,7 +37,7 @@ console.log(todayEntry);
     return (
         <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear}>
         <h3>{todayFullDate}</h3>
-        <p>{todayEntry.title}</p>
+        <p>{todayEntry && todayEntry.title}</p>
         </StyledTodayFullDate>
     );
 }

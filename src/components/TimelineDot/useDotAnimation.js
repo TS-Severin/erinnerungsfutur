@@ -9,7 +9,7 @@ const useFlyInAnimation = (elementRef, index) => {
       gsap.fromTo(
         element,
         { y: Math.random() * -1000, opacity: 0 }, // Initial position with randomness
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: index * 0.1 } // Final position with delay based on index
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: index * 0.1 } // Final position with delay based on index for each dot
       );
     }
   }, [elementRef, index]);
