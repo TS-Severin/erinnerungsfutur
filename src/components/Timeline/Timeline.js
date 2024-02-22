@@ -14,7 +14,9 @@ export default function Timeline() {
   return (
     <>
     <div className={styles.timelineContainer}>
+      <div className={styles.timelineTodayContainer}>
       <TimelineToday entries={entries}/>
+      </div>
     <div className={styles.timelineAxisContainer}>
     <TimelineAxis />
     </div>
