@@ -6,11 +6,6 @@ import styled from "styled-components";
 
 
 export default function TimelineToday({entries}) {
-    console.log("entries in today", entries);
-    // const today = GetTodayFullDateHelper();
-    // const todayFormatted = GetFormattedDateHelper();
-    // console.log("heute formatted: ", todayFormatted);
-    // const { entriesArray } = entries;
 
 // Function to find an entry in the array with today's date NEW FUNCTION
 function findEntryWithTodayDate(entries) {
@@ -29,7 +24,6 @@ function findEntryWithTodayDate(entries) {
   }
   
   const todayEntry = findEntryWithTodayDate(entries);
-console.log(todayEntry);
 
   const todayFullDate = GetTodayFullDateHelper();
 // gets the position of today on the X axis
