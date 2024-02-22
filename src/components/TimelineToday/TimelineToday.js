@@ -46,8 +46,8 @@ console.log(todayEntry);
 const StyledTodayFullDate = styled.div`
 display: flex;
 flex-direction: column;
-position: relative;
-top: 33%;
+position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
 overflow: visible;
+
 `;
