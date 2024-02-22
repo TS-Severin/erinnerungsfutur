@@ -4,10 +4,11 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  height: 352px;
+  height: 280px;
   padding: 16px;
+  cursor: url("../../../public/cursor.svg"), auto;
 }
-
+// 
 .timelineDotContainer {
   display: flex;
   // height: 300px;
@@ -30,7 +31,7 @@
 .timelineTodayContainer {
   background-color: red;
   position: relative;
-  top: 43%;
+  top: 28%;
   width: 100%;
 
 }
@@ -38,6 +39,7 @@
 .timelineAxisContainer {
   display: flex;
   position: relative;
+  top: 46%;
   width: 100%;
 }
 

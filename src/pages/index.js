@@ -2,6 +2,7 @@ import Head from "next/head";
 // import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
 import Timeline from "@/components/Timeline/Timeline";
+import Preview from "@/components/Preview/Preview";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export default function Home({ handlePreviewClick, previewIsClicked }) {
       </Head>
       {/* <main className={`${styles.main}  ${inter.className}`}> */}
       <main className={`${styles.main}`}>
-
+        <Preview previewIsClicked={previewIsClicked} />
         <Timeline
           handlePreviewClick={handlePreviewClick}
           previewIsClicked={previewIsClicked} />

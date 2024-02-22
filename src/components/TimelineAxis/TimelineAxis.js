@@ -9,7 +9,7 @@ width: 1px;
 height: 120px;
 overflow: visible;
 background-color: black;
-transform: translateY(150%);
+
 `;
 
 // const StyledTodayAxisElement = styled.p`
@@ -17,13 +17,13 @@ transform: translateY(150%);
 //     transform: translateY(500%);
 // `
 
-export default function TimelineAxis({title, date}) {
+export default function TimelineAxis({ title, date }) {
     const currentPercentOfYear = GetCurrentDayOfYearHelper();
     return (
-        
+
         <>
-        <StyledTimelineAxis $currentPercentOfYear={currentPercentOfYear} />
+            <StyledTimelineAxis $currentPercentOfYear={currentPercentOfYear} />
         </>
-        
+
     );
 }

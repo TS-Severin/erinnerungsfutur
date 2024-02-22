@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
 
   // SETTING CLICK STATE
 
-  // toggle state when clicking
+  //  toggle state when clicking / hovering
   const handlePreviewClick = (clickedId) => {
     setPreviewIsClicked(prevState =>
       prevState.map(entry => {

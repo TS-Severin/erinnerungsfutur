@@ -15,7 +15,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
   return (
     <>
       <div className={styles.timelineContainer}>
-        <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} />
+        {/* <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} /> */}
         <div className={styles.timelineTodayContainer}>
           <TimelineToday entries={entries} />
         </div>
