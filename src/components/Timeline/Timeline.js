@@ -6,7 +6,7 @@ import TimelinePreview from "../TimelinePreview/TimelinePreview";
 import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
-export default function Timeline({ handlePreviewClick }) {
+export default function Timeline({ handlePreviewClick, previewIsClicked }) {
   const { data: entries, isLoading } = useSWR("/api");
 
   //   if (error) return <div>Error fetching data</div>;
@@ -15,7 +15,7 @@ export default function Timeline({ handlePreviewClick }) {
   return (
     <>
       <div className={styles.timelineContainer}>
-        <TimelinePreview entries={entries} />
+        <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} />
         <div className={styles.timelineTodayContainer}>
           <TimelineToday entries={entries} />
         </div>

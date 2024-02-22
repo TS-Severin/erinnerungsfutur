@@ -5,7 +5,7 @@ import Timeline from "@/components/Timeline/Timeline";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ handlePreviewClick }) {
+export default function Home({ handlePreviewClick, previewIsClicked }) {
   return (
     <>
       <Head>
@@ -17,7 +17,9 @@ export default function Home({ handlePreviewClick }) {
       {/* <main className={`${styles.main}  ${inter.className}`}> */}
       <main className={`${styles.main}`}>
 
-        <Timeline handlePreviewClick={handlePreviewClick} />
+        <Timeline
+          handlePreviewClick={handlePreviewClick}
+          previewIsClicked={previewIsClicked} />
 
       </main>
     </>

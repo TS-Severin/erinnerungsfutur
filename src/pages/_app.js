@@ -16,6 +16,8 @@ export default function App({ Component, pageProps }) {
   };
 
   const { data: entries = [], isLoading } = useSWR("/api");
+
+  // INITIALIZING STATE FOR PREVIEW
   const [previewIsClicked, setPreviewIsClicked] =
     useState([]);
   // do it once when loading
@@ -26,18 +28,14 @@ export default function App({ Component, pageProps }) {
     }
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
-  console.log("daten in app", entries);
 
 
-  // INITIALIZING STATE FOR PREVIEW
+
+
 
 
 
   // SETTING CLICK STATE
-
-
-
-
 
   // toggle state when clicking
   const handlePreviewClick = (clickedId) => {
@@ -45,19 +43,21 @@ export default function App({ Component, pageProps }) {
       prevState.map(entry => {
         if (entry.id === clickedId) {
           return { ...entry, clicked: !entry.clicked };
+        } else {
+          return { ...entry, clicked: false };
         }
-        return entry;
       })
     );
   };
 
-  console.log("status", previewIsClicked);
+  //  console.log("status: ", previewIsClicked);
 
   return (
     <SWRConfig value={{ fetcher }}>
       <Navigation />
       <Component {...pageProps}
         handlePreviewClick={handlePreviewClick}
+        previewIsClicked={previewIsClicked}
       />;
     </SWRConfig>
   );

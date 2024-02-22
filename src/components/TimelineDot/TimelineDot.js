@@ -12,7 +12,6 @@ export default function TimelineDot({ id, date, color, slug, handlePreviewClick 
   // Apply GSAP animation when the component mounts
   useGSAP(dotRef);
 
-  console.log(id);
   return (
     <>
       <StyledTimelineDot key={id}
@@ -28,7 +27,7 @@ export default function TimelineDot({ id, date, color, slug, handlePreviewClick 
 // onclick={handlePreviewClick}
 // href={`/${slug}`}
 
-const StyledTimelineDot = styled.button`
+const StyledTimelineDot = styled.div`
 position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
