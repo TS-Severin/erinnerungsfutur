@@ -3,9 +3,9 @@ import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 import useGSAP from "./useDotAnimation";
 import React, { useRef } from 'react';
 
-export default function TimelineDot({ id, date, color, slug }) {
+export default function TimelineDot({ id, date, color, slug, handlePreviewClick }) {
   const percentOfYear = GetDayOfYearHelper(date);
-  
+
   // define reference for gsap animatin of dots (pass as props)
   const dotRef = useRef(null);
 
@@ -14,20 +14,20 @@ export default function TimelineDot({ id, date, color, slug }) {
 
   return (
     <>
-        <StyledTimelineDot key={id}
+      <StyledTimelineDot key={id}
         ref={dotRef}
         $percentOfYear={percentOfYear}
-        color={color} 
-        href={`/${slug}`}>
-        </StyledTimelineDot>
+        color={color}
+        onClick={() => handlePreviewClick(id)}
+      >
+      </StyledTimelineDot>
     </>
   );
 }
+// onclick={handlePreviewClick}
+// href={`/${slug}`}
 
-// dot styled component
-// grid-column: ${(props) => props.$positionInYear};
-// transform: translateX(${(props) => props.$positionInYear});
-const StyledTimelineDot = styled.a`
+const StyledTimelineDot = styled.div`
 position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
