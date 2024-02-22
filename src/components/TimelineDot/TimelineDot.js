@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
-
+import useGSAP from "./useDotAnimation";
+import React, { useRef } from 'react';
 
 export default function TimelineDot({ id, date, color, slug }) {
   const percentOfYear = GetDayOfYearHelper(date);
   
+  // define reference for gsap animatin of dots (pass as props)
+  const dotRef = useRef(null);
+
+  // Apply GSAP animation when the component mounts
+  useGSAP(dotRef);
+
   return (
     <>
         <StyledTimelineDot key={id}
+        ref={dotRef}
         $percentOfYear={percentOfYear}
         color={color} 
         href={`/${slug}`}>

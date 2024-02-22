@@ -37,7 +37,7 @@ console.log(todayEntry);
     return (
         <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear}>
         <h3>{todayFullDate}</h3>
-        <p>{todayEntry.title}</p>
+        <p>{todayEntry && todayEntry.title}</p>
         </StyledTodayFullDate>
     );
 }
@@ -46,7 +46,7 @@ console.log(todayEntry);
 const StyledTodayFullDate = styled.div`
 display: flex;
 flex-direction: column;
-position: absolute;
+position: relative;
 top: 33%;
 left: ${(props) => props.$currentPercentOfYear}%;
 overflow: visible;
