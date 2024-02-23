@@ -15,9 +15,8 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
   return (
     <>
       <div className={styles.timelineContainer}>
-        {/* <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} /> */}
         <div className={styles.timelineTodayContainer}>
-          <TimelineToday entries={entries} />
+          <TimelineToday entries={entries} previewIsClicked={previewIsClicked} />
         </div>
         <div className={styles.timelineAxisContainer}>
           <TimelineAxis />

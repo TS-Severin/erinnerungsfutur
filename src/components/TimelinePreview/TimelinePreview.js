@@ -1,7 +1,6 @@
 export default function TimelinePreview({ entries, previewIsClicked }) {
 
-    console.log("vorschau: ", entries);
-    console.log("boolean array", previewIsClicked);
+
     // FILTER boolean array
 
 
