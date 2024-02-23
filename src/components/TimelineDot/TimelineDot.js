@@ -18,9 +18,7 @@ export default function TimelineDot({ id, date, color, slug, handlePreviewClick 
         ref={dotRef}
         $percentOfYear={percentOfYear}
         color={color}
-        // onClick={() => handlePreviewClick(id)}
         onMouseEnter={() => handlePreviewClick(id)}
-      // onMouseLeave={() => handlePreviewClick(id)}
       >
       </StyledTimelineDot>
     </>

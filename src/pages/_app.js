@@ -47,7 +47,6 @@ export default function App({ Component, pageProps }) {
     );
   };
 
-  //  console.log("status: ", previewIsClicked);
 
   return (
     <SWRConfig value={{ fetcher }}>
