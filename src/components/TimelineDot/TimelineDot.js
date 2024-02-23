@@ -2,6 +2,7 @@ import styled from "styled-components";
 import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 import useGSAP from "./useDotAnimation";
 import React, { useRef } from 'react';
+import Link from "next/link";
 
 export default function TimelineDot({ id, date, color, slug, handlePreviewClick }) {
   const percentOfYear = GetDayOfYearHelper(date);
@@ -14,13 +15,15 @@ export default function TimelineDot({ id, date, color, slug, handlePreviewClick 
 
   return (
     <>
-      <StyledTimelineDot key={id}
-        ref={dotRef}
-        $percentOfYear={percentOfYear}
-        color={color}
-        onMouseEnter={() => handlePreviewClick(id)}
-      >
-      </StyledTimelineDot>
+      <Link href={`/${slug}`}>
+        <StyledTimelineDot key={id}
+          ref={dotRef}
+          $percentOfYear={percentOfYear}
+          color={color}
+          onMouseEnter={() => handlePreviewClick(id)}
+        >
+        </StyledTimelineDot>
+      </Link>
     </>
   );
 }
