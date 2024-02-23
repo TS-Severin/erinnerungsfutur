@@ -1,7 +1,7 @@
 export const entries = [
   {
     id: 453245,
-    date: "2008-02-22",
+    date: "2008-02-23",
     slug: "test-gedenktag",
     datestring: "21. Februar",
     title: "Internationaler Gedenktag",

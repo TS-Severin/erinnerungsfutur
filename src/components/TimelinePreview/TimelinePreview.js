@@ -1,7 +1,6 @@
 export default function TimelinePreview({ entries, previewIsClicked }) {
 
-    console.log("vorschau: ", entries);
-    console.log("boolean array", previewIsClicked);
+
     // FILTER boolean array
 
 
@@ -10,20 +9,23 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
     );
 
     if (!clickedEntryId) {
-        return null;
+        return (
+            <h1>Pluralistischer Erinnerungskalender</h1>
+        );
     }
 
-    // console.log("Object mit Id vom Datum", clickedEntryId.id);
+
     const clickedEntry = entries.find(entryObj => entryObj.id === clickedEntryId.id);
-    console.log("mein vorschaueintrag", clickedEntry?.title);
 
 
-
+    // console.log("TITLE", clickedEntry);
 
 
     return (
 
-        <h1>{clickedEntry?.title}</h1>
+        <h1>
+            {clickedEntry.title}
+        </h1>
     );
 }
 

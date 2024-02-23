@@ -18,7 +18,7 @@ export default function TimelineDot({ id, date, color, slug, handlePreviewClick 
         ref={dotRef}
         $percentOfYear={percentOfYear}
         color={color}
-        onClick={() => handlePreviewClick(id)}
+        onMouseEnter={() => handlePreviewClick(id)}
       >
       </StyledTimelineDot>
     </>
@@ -32,8 +32,8 @@ position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 overflow: visible;
-height: 8px;
-width: 8px;
+height: 16px;
+width: 16px;
 background-color: red;
 border-radius: 50%;
 display: inline-block;
@@ -41,9 +41,10 @@ justify-self: center;
 transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
 transition-timing-function: ease-out;
 &:hover {
-  height: 200px;
-  width: 200px;
-  background-color: white;
-  opacity: 0.5;
+  height: 20px;
+  width: 20px;
+  background-color: orange;
+  opacity: 0.1;
 }
 `;
+
