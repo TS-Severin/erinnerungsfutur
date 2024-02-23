@@ -4,9 +4,10 @@ import styles from "@/styles/Home.module.scss";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
 
-// const inter = Inter({ subsets: ["latin"] });
+
 
 export default function Home({ handlePreviewClick, previewIsClicked }) {
+
   return (
     <>
       <Head>

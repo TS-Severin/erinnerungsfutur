@@ -2,6 +2,7 @@ import TimelinePreview from "../TimelinePreview/TimelinePreview";
 import useSWR from "swr";
 import styles from "./Preview.module.scss";
 
+
 export default function Preview({ previewIsClicked }) {
     const { data: entries, isLoading } = useSWR("/api");
 
@@ -10,6 +11,7 @@ export default function Preview({ previewIsClicked }) {
 
     return (
         <div className={styles.previewcontainer}>
+
             <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} />
         </div>
     );
