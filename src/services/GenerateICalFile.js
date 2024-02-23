@@ -21,17 +21,27 @@ export default function GenerateICalFiles() {
     cal.createEvent({
         start: startDate,
         end: endDate,
-        summary: "Erinnerungsfutur"
+        summary: "Erinnerungsfutur",
+        repeating: {
+            freq: 'YEARLY',
+        },
+        url: "https://example.com/event",
+        description: "This is a description for the event."
     });
 
     // Generate the iCalendar file content
-    const iCalFile = cal.toString();
+    const iCalContent = cal.toString();
     // Set the appropriate HTTP headers
     const headers = {
         'Content-Type': 'text/calendar; charset=utf-8',
         'Content-Disposition': 'attachment; filename="calendar.ics"'
     };
 
-    return { headers, iCalFile };
+    const iCalFile =
+        Object.entries(headers)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\r\n') + '\r\n\r\n' + iCalContent;
+
+    return iCalFile;
 
 }

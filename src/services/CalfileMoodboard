@@ -97,3 +97,32 @@ function generateICalFile(event) {
 module.exports = { generateICalFile };
 
 
+// function which should work
+
+// Function to generate iCalendar files for each event
+export default function GenerateICalFiles() {
+    // Fetch calendar data from API
+    const { data: entries, isLoading } = useSWR("/api");
+
+    // Use map to generate iCalendar files for each event
+
+    const iCalFiles = entries.map((eventData) => {
+
+        // Create a new iCalendar instance for each event
+        const cal = ical();
+
+        // Create an iCalendar event
+        cal.createEvent({
+            start: eventData.date,
+            end: eventData.date,
+            summary: eventData.title
+        });
+
+        // Return the iCalendar file content
+        return cal.toString();
+        // });
+
+        // Return the array of iCalendar file contents
+        return { entries };
+
+    }
