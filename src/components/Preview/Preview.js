@@ -10,9 +10,12 @@ export default function Preview({ previewIsClicked }) {
     if (isLoading) return <div>Loading...</div>;
 
     return (
-        <div className={styles.previewcontainer}>
+        <div className="text-red-600">
 
             <TimelinePreview entries={entries} previewIsClicked={previewIsClicked} />
         </div>
     );
 }
+
+
+// {styles.previewcontainer}

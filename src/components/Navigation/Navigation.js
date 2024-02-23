@@ -1,4 +1,4 @@
-import styles from "./Navigation.module.scss";
+// import styles from "./Navigation.module.scss";
 import GenerateICalFiles from "@/services/GenerateICalFile";
 
 
@@ -10,7 +10,7 @@ export default function Navigation() {
 
 
     return (
-        <div className={styles.box}>
+        <div className="flex text-red-600">
             <a href={downloadLink} download="calendar.ics">Download Calendar</a>
             <h1>ERINNERUNGSFUTUR</h1>
             <ul>
