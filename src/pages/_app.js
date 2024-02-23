@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
 
-
 export default function App({ Component, pageProps }) {
   const fetcher = async (...args) => {
     const response = await fetch(...args);
