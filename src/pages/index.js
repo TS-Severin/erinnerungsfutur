@@ -1,6 +1,5 @@
 import Head from "next/head";
 // import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.scss";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
 
@@ -16,14 +15,23 @@ export default function Home({ handlePreviewClick, previewIsClicked }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <main className={`${styles.main}  ${inter.className}`}> */}
-      <main className={`${styles.main}`}>
-        <Preview previewIsClicked={previewIsClicked} />
-        <Timeline
-          handlePreviewClick={handlePreviewClick}
-          previewIsClicked={previewIsClicked} />
-
+      <main >
+        <div className="mx-4">
+          <Preview previewIsClicked={previewIsClicked} />
+          <Timeline
+            handlePreviewClick={handlePreviewClick}
+            previewIsClicked={previewIsClicked} />
+        </div>
       </main>
     </>
   );
 }
+
+// .main {
+//   display: flex;
+//   flex - direction: column;
+//   // justify-content: space-between;
+//   align - items: center;
+//   padding: 6rem;
+//   min - height: 100vh;
+// }
