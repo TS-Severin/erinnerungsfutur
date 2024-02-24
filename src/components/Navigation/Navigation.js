@@ -15,9 +15,12 @@ export default function Navigation() {
 
             <h1 className="text-xl font-bold">ERINNERUNGSFUTUR</h1>
             <ul className="flex space-x-4">
-                <li><a href="#">Kalenderimport</a></li>
                 <li ><a href="#">About</a></li>
+
             </ul>
         </div>
     );
 }
+
+
+// <li><a href="#">Kalenderimport</a></li>
