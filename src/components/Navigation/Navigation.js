@@ -16,7 +16,6 @@ export default function Navigation() {
             <h1>ERINNERUNGSFUTUR</h1>
             <ul className="flex">
                 <li className="mr-2"><a href="#">Kalenderimport</a></li>
-                <li className="mr-2"><a href="#">Bookmarks</a></li>
                 <li className="mr-2"><a href="#">About</a></li>
             </ul>
         </div>

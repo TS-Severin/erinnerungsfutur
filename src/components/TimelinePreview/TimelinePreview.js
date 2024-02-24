@@ -22,10 +22,11 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
 
     return (
-
-        <h1>
-            {clickedEntry.title}
-        </h1>
+        <>
+            <h1 className="font-cormorant">
+                {clickedEntry.title}
+            </h1>
+        </>
     );
 }
 

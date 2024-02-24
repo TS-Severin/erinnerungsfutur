@@ -4,6 +4,17 @@ import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
+import localFont from "next/font/local"
+
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf",
+      weight: '400'
+    }
+  ],
+  variable: '--font-cormorant'
+})
 
 export default function App({ Component, pageProps }) {
   const fetcher = async (...args) => {
@@ -48,12 +59,14 @@ export default function App({ Component, pageProps }) {
 
 
   return (
-    <SWRConfig value={{ fetcher }}>
-      <Navigation />
-      <Component {...pageProps}
-        handlePreviewClick={handlePreviewClick}
-        previewIsClicked={previewIsClicked}
-      />;
-    </SWRConfig>
+    <div className={`${cormorant.variable}`}>
+      <SWRConfig value={{ fetcher }}>
+        <Navigation />
+        <Component {...pageProps}
+          handlePreviewClick={handlePreviewClick}
+          previewIsClicked={previewIsClicked}
+        />;
+      </SWRConfig>
+    </div>
   );
 }
