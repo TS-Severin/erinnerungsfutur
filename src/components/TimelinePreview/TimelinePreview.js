@@ -1,5 +1,6 @@
 import GetPreviewText from "@/services/GetPreviewText";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TimelinePreview({ entries, previewIsClicked }) {
 
@@ -26,23 +27,30 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
     return (
         <>
+            <div className="relative">
 
-
-            <h1 className="text-xl">{`${clickedEntry.datestring} -`}</h1>
-
-
-
-            <h1 className="text-xl">{`${clickedEntry.title}`}</h1>
+                <h1 className="text-xl">{`${clickedEntry.datestring} -`}</h1>
 
 
 
+                <h1 className="text-xl">{`${clickedEntry.title}`}</h1>
 
-            <p className="pt-4">    {`${previewText} ... `}
-                <Link href={`/${clickedEntry.slug}`} className="underline">
-                    weiterlesen
-                </Link></p>
 
-            <p className="italic text-right pt-1">{clickedEntry.author}</p>
+
+
+                <p className="pt-4">    {`${previewText} ... `}
+                    <Link href={`/${clickedEntry.slug}`} className="underline">
+                        weiterlesen
+                    </Link></p>
+
+                <p className="italic text-right pt-1">{clickedEntry.author}</p>
+
+                <Link href="/destination-page" className="absolute top-1 right-1">
+
+                    <Image src="/calenderFresh.png" alt="icon for ical data download" width={25} height={25} />
+
+                </Link>
+            </div>
         </>
     );
 }
