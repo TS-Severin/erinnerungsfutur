@@ -1,8 +1,6 @@
 .cursorwrapper { 
-  cursor: url(/public/cursor.png), auto;
+  cursor: url("/public/cursor.png"), auto;
 }
-
-
 
 
 .timelineDotContainer {
@@ -36,7 +34,7 @@
 .timelineAxisContainer {
   display: flex;
   position: relative;
-  top: 0%;
+  top: 5%;
   width: 100%;
 }
 
