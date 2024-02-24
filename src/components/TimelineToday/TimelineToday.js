@@ -52,5 +52,5 @@ flex-direction: column;
 position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
 overflow: visible;
-
+transform: translateX(3px);
 `;

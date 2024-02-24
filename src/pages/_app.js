@@ -4,12 +4,12 @@ import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
-import localFont from "next/font/local"
+import localFont from "next/font/local";
 
 const cormorant = localFont({
   src: [
     {
-      path: "../../public/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf",
+      path: "../../public/fonts/CormorantGaramond/CormorantGaramond-Regular.ttf",
       weight: '400'
     }
   ],

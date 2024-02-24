@@ -6,7 +6,7 @@ const StyledTimelineAxis = styled.span`
 position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
 width: 1px;
-height: 120px;
+height: 110px;
 overflow: visible;
 background-color: black;
 
