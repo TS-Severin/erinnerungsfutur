@@ -13,9 +13,11 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
+
   return (
     <>
-      <div className={styles.timelineContainer}>
+
+      <div className="flex flex-col bg-white w-full p-8 h-44 border-4 rounded-b-3xl shadow-xl">
         <div className={styles.timelineTodayContainer}>
           <TimelineToday entries={entries} previewIsClicked={previewIsClicked} />
         </div>
@@ -24,7 +26,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
         </div>
         <span className={styles.timelineLine}>
         </span>
-        <div className={styles.timelineDotContainer}>
+        <div className="flex w-full align-middle justify-center relative top-20">
 
           {entries &&
             entries.map(({ id, date, color, slug }) => (
@@ -34,6 +36,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
         </div>
         <div className={styles.timelineMonthContainer}><TimelineMonths /></div>
       </div>
+
     </>
   );
 }
