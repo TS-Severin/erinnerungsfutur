@@ -1,14 +1,4 @@
-// import styles from "./Navigation.module.scss";
-import GenerateICalFiles from "@/services/GenerateICalFile";
-
-
 export default function Navigation() {
-    const kalender = GenerateICalFiles()
-    console.log("iCalFiles", kalender)
-    const downloadLink = `data:text/calendar;charset=utf-8,${encodeURIComponent(kalender)}`;
-    console.log("Link", downloadLink)
-
-    // <a href={downloadLink} download="calendar.ics">Download Calendar</a>
 
     return (
         <div className="flex items-center justify-between mt-4 ml-4 mr-4 p-8 bg-white border-4 rounded-3xl shadow-xl">
@@ -21,6 +11,3 @@ export default function Navigation() {
         </div>
     );
 }
-
-
-// <li><a href="#">Kalenderimport</a></li>
