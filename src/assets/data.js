@@ -3,7 +3,7 @@ export const entries = [
         id: 0,
         date: '2004-02-25',
         slug: 'test-gedenktag',
-        datestring: '21. Februar',
+        datestring: '26. Februar',
         title: 'Internationaler Gedenktag',
         author: 'Vorname Nachname',
         text: '<strong>Lorem ipsum</strong> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt <em>ut labore et dolore</em> magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo <bold>duo dolores</bold> et ea rebum.<br> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
