@@ -1,6 +1,5 @@
 import TimelinePreview from "../TimelinePreview/TimelinePreview";
 import useSWR from "swr";
-import styles from "./Preview.module.scss";
 
 
 export default function Preview({ previewIsClicked }) {
