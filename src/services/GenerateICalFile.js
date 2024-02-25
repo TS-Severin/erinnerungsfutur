@@ -21,6 +21,7 @@ export default function GenerateICalFiles(date, title, iCalSlug, text) {
     cal.createEvent({
         start: startDate,
         end: endDate,
+        allDay: true,
         summary: title,
         repeating: {
             freq: 'YEARLY',
