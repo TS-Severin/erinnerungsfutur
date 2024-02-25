@@ -12,7 +12,9 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
     if (!clickedEntryId) {
         return (
-            <h1>Pluralistischer Erinnerungskalender</h1>
+
+            <h1 className="text-xl">Der Pluralistische Gedenkkalender der <Link href="https://www.dialogueperspectives.org/de/coalition-for-pluralistic-public-discourse/">CPPD</Link> umfasst erinnerungspolitische Ereignisse und stellt sie in den Kontext pluralistischen Erinnerns.</h1 >
+
         );
     }
 
