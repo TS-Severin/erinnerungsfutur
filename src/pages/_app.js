@@ -51,6 +51,16 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>Loading...</div>;
 
   // SETTING REF FOR ZOOM
+
+  const handleZoomIncrease = () => {
+    timelineZoom.current += 10;
+  }
+  const handleZoomDecrease = () => {
+    timelineZoom.current -= 10;
+  }
+
+  console.log("ZOOM: ", timelineZoom);
+
   // console.log("ZOOM: ", timelineZoom);
 
   // SETTING ZOOM STATE
@@ -83,6 +93,8 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps}
           handlePreviewClick={handlePreviewClick}
           previewIsClicked={previewIsClicked}
+          handleZoomIncrease={handleZoomIncrease}
+          handleZoomDecrease={handleZoomDecrease}
         />;
       </SWRConfig>
     </div>

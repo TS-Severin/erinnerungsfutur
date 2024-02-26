@@ -1,14 +1,15 @@
 import styles from "./ZoomBar.module.scss";
 
-export default function ({ timelineZoom }) {
+export default function ({ handleZoomIncrease, handleZoomDecrease }) {
 
     // SETTING ZOOM REF
-    const handleZoomIncrease = () => {
-        setTimelineZoom(prevZoom => prevZoom + 10);
-    }
-    const handleZoomDecrease = () => {
-        setTimelineZoom(prevZoom => prevZoom - 10);
-    }
+    // const handleZoomIncrease = () => {
+    //     timelineZoom.current += 10;
+    // }
+    // const handleZoomDecrease = () => {
+    //     timelineZoom.current -= 10;
+    // }
+
 
     return (
         <div className={styles.zoomBarContainer}>
