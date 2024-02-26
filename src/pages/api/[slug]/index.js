@@ -1,17 +1,17 @@
-import { entries } from "../../../assets/data.js";
+import dbConnect from "../../../db/connect";
+import Entry from "../../../db/models/Joke";
 
-export default function handler(request, response) {
-  const { slug } = request.query;
+export default async function handler(request, response) {
+  await dbConnect();
+  const { id } = request.query;
 
-  if (!slug) {
-    return;
+  if (request.method === "GET") {
+    const entry = await Entry.findById(id);
+
+    if (!entry) {
+      return response.status(404).json({ status: "Not Found" });
+    }
+
+    response.status(200).json(entry);
   }
-
-  const date = entries.find((date) => date.slug === slug);
-
-  if (!date) {
-    return response.status(404).json({ status: "Not found" });
-  }
-
-  response.status(200).json( date );
 }
