@@ -7,21 +7,19 @@ import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
 
-const StyledTimelineContainer = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-background-color: white;
-height: 8rem;
-`;
 
-export default function Timeline({ handlePreviewClick, previewIsClicked }) {
+
+export default function Timeline({ handlePreviewClick, previewIsClicked, timelineZoom }) {
   const { data: entries, isLoading } = useSWR("/api");
-
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
   // className={styles.timelineContainer}
+
+  const { current } = timelineZoom;
+  console.log(current);
+
+
 
   return (
     <>
@@ -52,5 +50,12 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
 }
 
 
+const StyledTimelineContainer = styled.div`
+display: flex;
+flex-direction: column;
+width: 200%;
+background-color: white;
+height: 8rem;
+`;
 
 

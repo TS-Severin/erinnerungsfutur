@@ -5,8 +5,7 @@ import Preview from "@/components/Preview/Preview";
 import ZoomBar from "@/components/ZoomBar/ZoomBar";
 
 
-
-export default function Home({ handlePreviewClick, previewIsClicked, handleZoomIncrease, handleZoomDecrease }) {
+export default function Home({ handlePreviewClick, previewIsClicked, handleZoomIncrease, handleZoomDecrease, timelineZoom }) {
 
 
   return (
@@ -25,7 +24,7 @@ export default function Home({ handlePreviewClick, previewIsClicked, handleZoomI
           <Timeline
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
-
+            timelineZoom={timelineZoom}
 
           />
         </div>

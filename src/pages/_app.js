@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
   //  useState(100);
 
   // INITIALIZING REF FOR ZOOM
-  const timelineZoom = useRef(100);
+  let timelineZoom = useRef(100);
 
 
   // INITIALIZING STATE FOR PREVIEW
@@ -54,12 +54,13 @@ export default function App({ Component, pageProps }) {
 
   const handleZoomIncrease = () => {
     timelineZoom.current += 10;
+    console.log("ZOOM: ", timelineZoom);
   }
   const handleZoomDecrease = () => {
     timelineZoom.current -= 10;
+    console.log("ZOOM: ", timelineZoom);
   }
 
-  console.log("ZOOM: ", timelineZoom);
 
   // console.log("ZOOM: ", timelineZoom);
 
@@ -95,6 +96,7 @@ export default function App({ Component, pageProps }) {
           previewIsClicked={previewIsClicked}
           handleZoomIncrease={handleZoomIncrease}
           handleZoomDecrease={handleZoomDecrease}
+          timelineZoom={timelineZoom}
         />;
       </SWRConfig>
     </div>
