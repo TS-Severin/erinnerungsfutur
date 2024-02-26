@@ -2,10 +2,12 @@ import Head from "next/head";
 // import { Inter } from "next/font/google";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
+import ZoomBar from "@/components/ZoomBar/ZoomBar";
 
 
 
 export default function Home({ handlePreviewClick, previewIsClicked }) {
+
 
   return (
     <>
@@ -18,9 +20,12 @@ export default function Home({ handlePreviewClick, previewIsClicked }) {
       <main >
         <div className="mx-4">
           <Preview previewIsClicked={previewIsClicked} />
+          <ZoomBar />
           <Timeline
             handlePreviewClick={handlePreviewClick}
-            previewIsClicked={previewIsClicked} />
+            previewIsClicked={previewIsClicked}
+
+          />
         </div>
       </main>
     </>

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
 import localFont from "next/font/local";
+import { useRef } from "react";
 
 const cormorant = localFont({
   src: [
@@ -25,7 +26,17 @@ export default function App({ Component, pageProps }) {
     return response.json();
   };
 
+
   const { data: entries = [], isLoading } = useSWR("/api");
+
+
+  // INITIALIZING STATE FOR ZOOM
+  // const [timelineZoom, setTimelineZoom] =
+  //  useState(100);
+
+  // INITIALIZING REF FOR ZOOM
+  const timelineZoom = useRef(100);
+
 
   // INITIALIZING STATE FOR PREVIEW
   const [previewIsClicked, setPreviewIsClicked] =
@@ -39,10 +50,16 @@ export default function App({ Component, pageProps }) {
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
 
+  // SETTING REF FOR ZOOM
+  // console.log("ZOOM: ", timelineZoom);
 
-
-
-
+  // SETTING ZOOM STATE
+  // const handleZoomIncrease = () => {
+  //   setTimelineZoom(prevZoom => prevZoom + 10);
+  // }
+  // const handleZoomDecrease = () => {
+  //   setTimelineZoom(prevZoom => prevZoom - 10);
+  // }
 
 
   // SETTING CLICK STATE
@@ -58,6 +75,7 @@ export default function App({ Component, pageProps }) {
   };
 
 
+  // timelineZoom={timelineZoom}
   return (
     <div className={`${cormorant.variable}`}>
       <SWRConfig value={{ fetcher }}>
