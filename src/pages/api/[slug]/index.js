@@ -1,5 +1,5 @@
 import dbConnect from "../../../db/connect";
-import Entry from "../../../db/models/Joke";
+import Entry from "../../../db/models/Entry";
 
 export default async function handler(request, response) {
   await dbConnect();
