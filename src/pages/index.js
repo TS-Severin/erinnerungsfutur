@@ -6,7 +6,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import AdminBar from "@/components/AdminBar/AdminBar";
 import Link from "next/link";
 
-export default function Home({ handlePreviewClick, previewIsClicked }) {
+export default function Home({ handlePreviewClick, previewIsClicked, entries }) {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -23,7 +23,7 @@ export default function Home({ handlePreviewClick, previewIsClicked }) {
       <main >
         <div className="mx-4">
           {user ? (
-            <AdminBar />
+            <AdminBar entries={entries} />
           ) : null}
           <Preview previewIsClicked={previewIsClicked} />
           <Timeline

@@ -1,17 +1,10 @@
 // import { useState } from "react";
 
-export default function EntryForm({ onHandleSubmit, update }) {
+export default function EntryForm({ onHandleSubmit, update, entries }) {
 
-    // const { date, slug, datestring, title, author, text } = entries;
+    const { date, slug, datestring, title, author, text } = entries;
 
-    // const [formData, setFormData] = useState(entries);
 
-    // const handleInputChange = (e, fieldName) => {
-    //     setFormData({
-    //         ...formData,
-    //         [fieldName]: e.target.value,
-    //     });
-    // };
 
     return (
         <>
@@ -22,19 +15,21 @@ export default function EntryForm({ onHandleSubmit, update }) {
                     </h1>
                     <label htmlFor="date">
                         Datum für Position in der Timeline:
-                        <input type="date" id="date" name="date" required
+                        <input type="date" id="date" name="date" required defaultValue={entries.date}
                             placeholder="jjjj-mm-tt" />
                     </label>
 
                     <label htmlFor="slug">
                         Slug:
                         <input type="text" id="slug" name="slug" required
+                            defaultValue={entries.slug}
                             placeholder="titel-des-eintrags" />
                     </label>
 
                     <label htmlFor="datestring">
                         Datum wie es angezeigt wird:
                         <input type="text" id="datestring" name="datestring" required
+                            defaultValue={entries.datestring}
                             placeholder="Tag. Monat, z. B.: 26. März" />
                     </label>
 
@@ -42,18 +37,21 @@ export default function EntryForm({ onHandleSubmit, update }) {
                     <label htmlFor="title">
                         Titel:
                         <input type="text" id="title" name="title" required
+                            defaultValue={entries.title}
                             placeholder="Titel des Ereignisses" />
                     </label>
 
                     <label htmlFor="author">
                         Autor:in:
                         <input type="text" id="author" name="author" required
+                            defaultValue={entries.author}
                             placeholder="Vorname Nachname" />
                     </label>
 
                     <label htmlFor="textarea">
                         Text:</label>
                     <textarea rows="5" cols="33" id="text" name="text" required
+                        defaultValue={entries.text}
                         placeholder="kompletter Text" />
 
 

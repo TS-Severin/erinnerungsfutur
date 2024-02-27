@@ -2,7 +2,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import EntryForm from "../EntryForm/EntryForm";
 
-export default function AdminBar() {
+export default function AdminBar({ entries }) {
     const { mutate } = useSWR("/api");
 
     const handleSubmit = async (event) => {
@@ -37,7 +37,7 @@ export default function AdminBar() {
                 </ul>
 
             </div>
-            <EntryForm onHandleSubmit={handleSubmit} />
+            <EntryForm entries={entries} onHandleSubmit={handleSubmit} />
         </>
     );
 }
