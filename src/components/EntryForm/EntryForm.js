@@ -21,38 +21,38 @@ export default function EntryForm({ onHandleSubmit, update }) {
                         {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
                     <label htmlFor="date">
-                        date:
-                        <input type="text" id="date" name="date" required
+                        Datum für Position in der Timeline:
+                        <input type="date" id="date" name="date" required
                             placeholder="jjjj-mm-tt" />
                     </label>
 
                     <label htmlFor="slug">
-                        slug:
+                        Slug:
                         <input type="text" id="slug" name="slug" required
                             placeholder="titel-des-eintrags" />
                     </label>
 
                     <label htmlFor="datestring">
-                        datestring:
+                        Datum wie es angezeigt wird:
                         <input type="text" id="datestring" name="datestring" required
                             placeholder="Tag. Monat, z. B.: 26. März" />
                     </label>
 
 
                     <label htmlFor="title">
-                        title:
+                        Titel:
                         <input type="text" id="title" name="title" required
                             placeholder="Titel des Ereignisses" />
                     </label>
 
                     <label htmlFor="author">
-                        author:
+                        Autor:in:
                         <input type="text" id="author" name="author" required
                             placeholder="Vorname Nachname" />
                     </label>
 
                     <label htmlFor="textarea">
-                        text:</label>
+                        Text:</label>
                     <textarea rows="5" cols="33" id="text" name="text" required
                         placeholder="kompletter Text" />
 
