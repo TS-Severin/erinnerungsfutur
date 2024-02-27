@@ -11,7 +11,7 @@ export default function DateDetailsPage() {
   const { data, error } = useSWR(`/api/${slug}`)
   if (error) return <div>Error fetching data</div>
   if (!data) return <div>Loading...</div>
-  const { title, author, datestring, text, date, slug: iCalSlug } = data
+  const { title, author, datestring, text, date, slug: iCalSlug } = data;
 
   const createMarkup = (htmlString) => {
     return { __html: htmlString }
