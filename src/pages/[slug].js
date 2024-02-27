@@ -3,15 +3,16 @@ import useSWR from "swr"
 import GenerateICalFiles from "@/services/GenerateICalFile";
 import Link from "next/link"
 import Image from "next/image"
-import GetPreviewText from "@/services/GetPreviewText"; import ICalDownload from "@/components/ICalDownload/ICalDownload";
+import GetPreviewText from "@/services/GetPreviewText";
+import ICalDownload from "@/components/ICalDownload/ICalDownload";
 
 export default function DateDetailsPage() {
   const router = useRouter()
   const { slug } = router.query
-  const { data, error } = useSWR(`/api/${slug}`)
+  const { data: entries, error } = useSWR(`/api/${slug}`)
   if (error) return <div>Error fetching data</div>
-  if (!data) return <div>Loading...</div>
-  const { title, author, datestring, text, date, slug: iCalSlug } = data;
+  if (!entries) return <div>Loading...</div>
+  const { title, author, datestring, text, date, slug: iCalSlug } = entries;
 
   const createMarkup = (htmlString) => {
     return { __html: htmlString }
