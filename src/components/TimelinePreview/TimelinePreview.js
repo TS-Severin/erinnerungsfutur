@@ -25,9 +25,9 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
     }
 
     // const { title, author, date, datestring, slug, } = clickedEntry;
-    console.log("error clickedentryid:", clickedEntryId, entries);
+    // console.log("error clickedentryid:", clickedEntryId, entries);
     const previewText = GetPreviewText(clickedEntry.text);
-    console.log(previewText);
+    // console.log(previewText);
 
     // console.log("TITLE", clickedEntry);
 

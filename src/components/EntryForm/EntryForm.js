@@ -1,44 +1,60 @@
-export default function EntryForm({ onHandleSubmit }) {
+// import { useState } from "react";
 
+export default function EntryForm({ onHandleSubmit, update }) {
 
+    // const { date, slug, datestring, title, author, text } = entries;
 
+    // const [formData, setFormData] = useState(entries);
+
+    // const handleInputChange = (e, fieldName) => {
+    //     setFormData({
+    //         ...formData,
+    //         [fieldName]: e.target.value,
+    //     });
+    // };
 
     return (
         <>
-            <div className="items-center justify-between mt-4 ml-0 mr-0 p-8 bg-white border-4 rounded-3xl shadow-xl">
+            <div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
                 <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
                     <h1 className="font-bold">
-                        Neuer Eintrag
+                        {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
                     <label htmlFor="date">
                         date:
-                        <input placeholder="jjjj-mm-tt" type="text" id="date" name="date" required />
+                        <input type="text" id="date" name="date" required
+                            placeholder="jjjj-mm-tt" />
                     </label>
 
                     <label htmlFor="slug">
                         slug:
-                        <input placeholder="titel-des-eintrags" type="text" id="slug" name="slug" required />
+                        <input type="text" id="slug" name="slug" required
+                            placeholder="titel-des-eintrags" />
                     </label>
 
                     <label htmlFor="datestring">
                         datestring:
-                        <input placeholder="Tag. Monat, z. B.: 26. März" type="text" id="datestring" name="datestring" required />
+                        <input type="text" id="datestring" name="datestring" required
+                            placeholder="Tag. Monat, z. B.: 26. März" />
                     </label>
 
 
                     <label htmlFor="title">
                         title:
-                        <input placeholder="Titel des Ereignisses" type="text" id="title" name="title" required />
+                        <input type="text" id="title" name="title" required
+                            placeholder="Titel des Ereignisses" />
                     </label>
 
                     <label htmlFor="author">
                         author:
-                        <input placeholder="Vorname Nachname" type="text" id="autor" name="autor" required />
+                        <input type="text" id="author" name="author" required
+                            placeholder="Vorname Nachname" />
                     </label>
 
                     <label htmlFor="textarea">
                         text:</label>
-                    <textarea rows="5" cols="33" placeholder="kompletter Text" id="text" name="text" required />
+                    <textarea rows="5" cols="33" id="text" name="text" required
+                        placeholder="kompletter Text" />
 
 
                     <button type="submit">Submit</button>
@@ -47,3 +63,52 @@ export default function EntryForm({ onHandleSubmit }) {
         </>
     );
 }
+
+
+{/* <>
+<div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
+    <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
+        <h1 className="font-bold">
+            {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
+        </h1>
+        <label htmlFor="date">
+            date:
+            <input type="text" id="date" name="date" required
+                {...(update ? { defaultValue: formData.date, onChange: (e) => handleInputChange(e, "date") } : { placeholder: "jjjj-mm-tt" })} />
+        </label>
+
+        <label htmlFor="slug">
+            slug:
+            <input type="text" id="slug" name="slug" required
+                {...(update ? { value: slug } : { placeholder: "titel-des-eintrags" })} />
+        </label>
+
+        <label htmlFor="datestring">
+            datestring:
+            <input type="text" id="datestring" name="datestring" required
+                {...(update ? { value: slug } : { placeholder: "Tag. Monat, z. B.: 26. März" })} />
+        </label>
+
+
+        <label htmlFor="title">
+            title:
+            <input type="text" id="title" name="title" required
+                {...(update ? { value: title } : { placeholder: "Titel des Ereignisses" })} />
+        </label>
+
+        <label htmlFor="author">
+            author:
+            <input type="text" id="autor" name="autor" required
+                {...(update ? { value: author } : { placeholder: "Vorname Nachname" })} />
+        </label>
+
+        <label htmlFor="textarea">
+            text:</label>
+        <textarea rows="5" cols="33" id="text" name="text" required
+            {...(update ? { value: text } : { placeholder: "kompletter Text" })} />
+
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</> */}
