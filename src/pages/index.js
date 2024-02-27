@@ -3,6 +3,7 @@ import Head from "next/head";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
 import { useUser } from '@auth0/nextjs-auth0/client';
+import AdminBar from "@/components/AdminBar/AdminBar";
 import Link from "next/link";
 
 export default function Home({ handlePreviewClick, previewIsClicked }) {
@@ -22,12 +23,7 @@ export default function Home({ handlePreviewClick, previewIsClicked }) {
       <main >
         <div className="mx-4">
           {user ? (
-            <>
-              <div>
-                SHOW WHEN LOGGED IN
-              </div>
-              <Link href="http://localhost:3000/api/auth/logout">Logout</Link>
-            </>
+            <AdminBar />
           ) : null}
           <Preview previewIsClicked={previewIsClicked} />
           <Timeline

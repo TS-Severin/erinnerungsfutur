@@ -20,21 +20,26 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
     const clickedEntry = entries.find(entryObj => entryObj.id === clickedEntryId.id);
 
-    // const { title, author, date, datestring, slug, } = clickedEntry;
+    if (!clickedEntry) {
+        return null
+    }
 
+    // const { title, author, date, datestring, slug, } = clickedEntry;
+    // console.log("error clickedentryid:", clickedEntryId, entries);
     const previewText = GetPreviewText(clickedEntry.text);
-    console.log(previewText);
+    // console.log(previewText);
 
     // console.log("TITLE", clickedEntry);
 
-
+    // const previewTextMarkup = dangerouslySetInnerHTML = { createMarkup(text) };
 
     return (
         <>
             <div className="relative">
                 <h1 className="text-xl">{`${clickedEntry.datestring} -`}</h1>
                 <h1 className="text-xl w-2/3">{`${clickedEntry.title}`}</h1>
-                <p className="pt-4">    {`${previewText} ... `}
+                <p className="pt-4">
+                    {`${previewText} ... `}
                     <Link href={`/${clickedEntry.slug}`} className="underline">
                         weiterlesen
                     </Link></p>

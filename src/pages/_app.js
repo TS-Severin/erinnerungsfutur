@@ -26,8 +26,9 @@ export default function App({ Component, pageProps }) {
     }
     return response.json();
   };
-
   const { data: entries = [], isLoading } = useSWR("/api");
+
+
 
   // INITIALIZING STATE FOR PREVIEW
   const [previewIsClicked, setPreviewIsClicked] =
@@ -68,6 +69,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps}
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
+
           />;
         </UserProvider>
       </SWRConfig>
