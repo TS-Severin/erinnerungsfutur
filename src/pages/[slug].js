@@ -71,7 +71,7 @@ export default function DateDetailsPage() {
           <>
             <button className="mr-6 font-bold" onClick={handleDelete}>Eintrag löschen</button>
             <button onClick={() => setIsEditMode(!isEditMode)} className="mr-6 font-bold">{isEditMode ? "Schließen" : "Eintrag bearbeiten"}</button>
-            {isEditMode && <EntryForm onHandleSubmit={handleEdit} update />}
+            {isEditMode && <EntryForm onHandleSubmit={handleEdit} entries={entries} update />}
 
           </>
         ) : null}
