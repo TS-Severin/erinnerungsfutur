@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
     "@next/font": "^14.1.0",
     "gsap": "^3.12.5",
     "ical-generator": "^6.0.1",
