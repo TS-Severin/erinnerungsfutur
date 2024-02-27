@@ -20,8 +20,12 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
     const clickedEntry = entries.find(entryObj => entryObj.id === clickedEntryId.id);
 
-    // const { title, author, date, datestring, slug, } = clickedEntry;
+    if (!clickedEntry) {
+        return null
+    }
 
+    // const { title, author, date, datestring, slug, } = clickedEntry;
+    console.log("error clickedentryid:", clickedEntryId, entries);
     const previewText = GetPreviewText(clickedEntry.text);
     console.log(previewText);
 

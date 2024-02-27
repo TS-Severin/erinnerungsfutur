@@ -13,5 +13,11 @@ export default async function handler(request, response) {
     }
 
     response.status(200).json(entry);
+  } else if (request.method === "DELETE") {
+    console.log("testslug: ", slug);
+    const entries = await Entry.findOneAndDelete({ slug });
+    console.log("entrieslog: ", entries);
+    response.status(260).json("Eintrag gelöscht");
+    return response.status(200).json(entries);
   }
 }
