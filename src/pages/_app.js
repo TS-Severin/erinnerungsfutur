@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
 import localFont from "next/font/local";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
 
 const cormorant = localFont({
   src: [
@@ -61,11 +63,13 @@ export default function App({ Component, pageProps }) {
   return (
     <div className={`${cormorant.variable}`}>
       <SWRConfig value={{ fetcher }}>
-        <Navigation />
-        <Component {...pageProps}
-          handlePreviewClick={handlePreviewClick}
-          previewIsClicked={previewIsClicked}
-        />;
+        <UserProvider>
+          <Navigation />
+          <Component {...pageProps}
+            handlePreviewClick={handlePreviewClick}
+            previewIsClicked={previewIsClicked}
+          />;
+        </UserProvider>
       </SWRConfig>
     </div>
   );
