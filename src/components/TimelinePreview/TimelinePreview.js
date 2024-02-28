@@ -2,6 +2,7 @@ import GetPreviewText from "@/services/GetPreviewText";
 import Link from "next/link";
 import ICalDownload from "../ICalDownload/ICalDownload";
 
+
 export default function TimelinePreview({ entries, previewIsClicked }) {
 
 
@@ -12,10 +13,12 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
 
     if (!clickedEntryId) {
         return (
+            <>
+                <h1 className="font-bricolage text-xl">Der Pluralistische Gedenkkalender der <Link href="https://www.dialogueperspectives.org/de/coalition-for-pluralistic-public-discourse/">CPPD</Link> umfasst erinnerungspolitische Ereignisse und stellt sie in den Kontext pluralistischen Erinnerns.</h1 >
 
-            <h1 className="font-bricolage text-xl">Der Pluralistische Gedenkkalender der <Link href="https://www.dialogueperspectives.org/de/coalition-for-pluralistic-public-discourse/">CPPD</Link> umfasst erinnerungspolitische Ereignisse und stellt sie in den Kontext pluralistischen Erinnerns.</h1 >
-
+            </>
         );
+
     }
 
     const clickedEntry = entries.find(entryObj => entryObj.id === clickedEntryId.id);
