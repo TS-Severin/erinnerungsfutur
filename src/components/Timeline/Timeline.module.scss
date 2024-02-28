@@ -1,21 +1,38 @@
-.cursorwrapper {
-  cursor: url("/public/cursor.png"), auto;
+.timelineWindowContainer {
+  width: 100%;
+  overflow-x: scroll;
+  background-color: white;
+  border-radius: 0 0 1.5rem 1.5rem;
+  border-width: 4px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.timelineDotContainer {
+.timelineContainer {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  height: 8rem;
+}
+
+// in tailwind className="flex flex-col w-full bg-white h-32"
+//   >
+
+.timelineDotContainer {
   // height: 300px;
   width: 100%;
   //border: 2px solid blue;
   align-items: center;
   justify-items: center;
   position: relative;
-  top: 76;
+  top: 79%;
 }
+
+// class as tailwind: className="flex w-full align-middle justify-center relative top-20"
 
 .timelineLine {
   width: 100%;
-  overflow: hidden;
   height: 1px;
   background-color: red;
   position: relative;
@@ -23,16 +40,14 @@
 }
 
 .timelineTodayContainer {
-  background-color: red;
   position: relative;
-  top: 20%;
+  top: 28%;
   width: 100%;
 }
 
 .timelineAxisContainer {
-  display: flex;
   position: relative;
-  top: 70%;
+  top: 73%;
   width: 100%;
 }
 

@@ -1,12 +1,11 @@
 import Head from "next/head";
-// import { Inter } from "next/font/google";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
+import ZoomBar from "@/components/ZoomBar/ZoomBar";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import AdminBar from "@/components/AdminBar/AdminBar";
-import Link from "next/link";
 
-export default function Home({ handlePreviewClick, previewIsClicked, entries }) {
+export default function Home({ handlePreviewClick, previewIsClicked, entries, handleZoomIncrease, handleZoomDecrease, timelineZoom }) {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -26,9 +25,14 @@ export default function Home({ handlePreviewClick, previewIsClicked, entries }) 
             <AdminBar entries={entries} />
           ) : null}
           <Preview previewIsClicked={previewIsClicked} />
+          <ZoomBar handleZoomIncrease={handleZoomIncrease}
+            handleZoomDecrease={handleZoomDecrease} />
           <Timeline
             handlePreviewClick={handlePreviewClick}
-            previewIsClicked={previewIsClicked} />
+            previewIsClicked={previewIsClicked}
+            timelineZoom={timelineZoom}
+
+          />
         </div>
       </main>
     </>

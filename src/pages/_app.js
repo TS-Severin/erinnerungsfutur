@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
+import { useRef } from "react";
 import { Cormorant_Garamond, Bricolage_Grotesque, Comic_Neue } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 
@@ -34,8 +35,17 @@ export default function App({ Component, pageProps }) {
     }
     return response.json();
   };
+
+
   const { data: entries = [], isLoading } = useSWR("/api");
 
+
+  // INITIALIZING STATE FOR ZOOM
+  const [timelineZoom, setTimelineZoom] =
+    useState(100);
+
+  // INITIALIZING REF FOR ZOOM
+  // let timelineZoom = useRef(100);
 
 
   // INITIALIZING STATE FOR PREVIEW
@@ -50,10 +60,28 @@ export default function App({ Component, pageProps }) {
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
 
+  // SETTING REF FOR ZOOM
+
+  // const handleZoomIncrease = () => {
+  //   timelineZoom.current += 10;
+  //   console.log("ZOOM: ", timelineZoom);
+  // }
+  // const handleZoomDecrease = () => {
+  //   timelineZoom.current -= 10;
+  //   console.log("ZOOM: ", timelineZoom);
+  // }
 
 
+  // console.log("ZOOM: ", timelineZoom);
 
-
+  // SETTING ZOOM STATE
+  const handleZoomIncrease = () => {
+    setTimelineZoom(prevZoom => prevZoom + 10);
+  }
+  const handleZoomDecrease = () => {
+    setTimelineZoom(prevZoom => prevZoom - 10);
+  }
+  console.log("ZOOM: ", timelineZoom);
 
 
   // SETTING CLICK STATE
@@ -69,6 +97,7 @@ export default function App({ Component, pageProps }) {
   };
 
 
+  // timelineZoom={timelineZoom}
   return (
     <div className={`${cormorant.variable}  ${bricolage.variable} ${comic.variable} `}>
       <SWRConfig value={{ fetcher }}>
@@ -79,6 +108,9 @@ export default function App({ Component, pageProps }) {
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
             entries={entries}
+            handleZoomIncrease={handleZoomIncrease}
+            handleZoomDecrease={handleZoomDecrease}
+            timelineZoom={timelineZoom}
           />
 
         </UserProvider>
