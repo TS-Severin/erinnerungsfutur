@@ -9,6 +9,7 @@ import { Cormorant_Garamond, Bricolage_Grotesque, Comic_Neue } from 'next/font/g
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 
+
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: '400',
