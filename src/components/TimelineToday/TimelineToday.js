@@ -44,10 +44,10 @@ export default function TimelineToday({ entries, previewIsClicked }) {
     const currentPercentOfYear = GetCurrentDayOfYearHelper();
     return (
         <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear}>
-            <h3>{todayFullDate}</h3>
+            <h3 className="font-bricolage text-sm">{todayFullDate}</h3>
             {todayEntry && (
                 clickedEntryId === undefined || clickedEntryId.id !== todayEntry.id ? (
-                    <p>{todayEntry.title}</p>
+                    <p className="font-comic text-sm">{todayEntry.title}</p>
                 ) : null
             )}
 

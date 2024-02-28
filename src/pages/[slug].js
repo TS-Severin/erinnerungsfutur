@@ -75,9 +75,10 @@ export default function DateDetailsPage() {
 
           </>
         ) : null}
-        <h1 className="text-xl">{`${datestring}: ${title}`}</h1>
-        <h2 className="italic text-right pt-8">{author}</h2>
-        <div dangerouslySetInnerHTML={createMarkup(text)} />
+        <h1 className="font-bricolage font-extralight text-2xl">{`${datestring}:`}</h1>
+        <h1 className="font-bricolage font-extralight pt-2 text-2xl">{title}</h1>
+        <h2 className="italic font-cormorant pt-8">{author}</h2>
+        <div className="font-cormorant pt-4" dangerouslySetInnerHTML={createMarkup(text)} />
         <div className="absolute top-8 right-8">
           <ICalDownload date={date} title={title} iCalSlug={iCalSlug} text={text} />
         </div>
