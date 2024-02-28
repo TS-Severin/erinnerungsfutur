@@ -28,7 +28,7 @@ export default function TimelineMonths() {
             {months.map(month => {
                 const percentOfYear = calculatePercentOfYear(month.dateToBeShown);
                 return (
-                    <StyledMonth key={month.month} $percentOfYear={percentOfYear}>
+                    <StyledMonth className="font-bricolage" key={month.month} $percentOfYear={percentOfYear}>
                         {month.month}
                     </StyledMonth>
 

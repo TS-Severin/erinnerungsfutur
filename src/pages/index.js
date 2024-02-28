@@ -1,12 +1,15 @@
 import Head from "next/head";
-// import { Inter } from "next/font/google";
 import Timeline from "@/components/Timeline/Timeline";
 import Preview from "@/components/Preview/Preview";
 import ZoomBar from "@/components/ZoomBar/ZoomBar";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import AdminBar from "@/components/AdminBar/AdminBar";
 
+export default function Home({ handlePreviewClick, previewIsClicked, entries, handleZoomIncrease, handleZoomDecrease }) {
+  const { user, error, isLoading } = useUser();
 
-export default function Home({ handlePreviewClick, previewIsClicked, handleZoomIncrease, handleZoomDecrease, timelineZoom }) {
-
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <>
@@ -18,13 +21,15 @@ export default function Home({ handlePreviewClick, previewIsClicked, handleZoomI
       </Head>
       <main >
         <div className="mx-4">
+          {user ? (
+            <AdminBar entries={entries} />
+          ) : null}
           <Preview previewIsClicked={previewIsClicked} />
           <ZoomBar handleZoomIncrease={handleZoomIncrease}
             handleZoomDecrease={handleZoomDecrease} />
           <Timeline
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
-            timelineZoom={timelineZoom}
 
           />
         </div>
@@ -32,12 +37,3 @@ export default function Home({ handlePreviewClick, previewIsClicked, handleZoomI
     </>
   );
 }
-
-// .main {
-//   display: flex;
-//   flex - direction: column;
-//   // justify-content: space-between;
-//   align - items: center;
-//   padding: 6rem;
-//   min - height: 100vh;
-// }

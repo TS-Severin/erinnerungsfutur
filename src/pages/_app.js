@@ -4,17 +4,27 @@ import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
-import localFont from "next/font/local";
 import { useRef } from "react";
+import { Cormorant_Garamond, Bricolage_Grotesque, Comic_Neue } from 'next/font/google'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
-const cormorant = localFont({
-  src: [
-    {
-      path: "../../public/fonts/CormorantGaramond/CormorantGaramond-Regular.ttf",
-      weight: '400'
-    }
-  ],
-  variable: '--font-cormorant'
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-cormorant',
+})
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bricolage',
+})
+
+const comic = Comic_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-comic',
 })
 
 export default function App({ Component, pageProps }) {
@@ -88,16 +98,20 @@ export default function App({ Component, pageProps }) {
 
   // timelineZoom={timelineZoom}
   return (
-    <div className={`${cormorant.variable}`}>
+    <div className={`${cormorant.variable}  ${bricolage.variable} ${comic.variable} `}>
       <SWRConfig value={{ fetcher }}>
-        <Navigation />
-        <Component {...pageProps}
-          handlePreviewClick={handlePreviewClick}
-          previewIsClicked={previewIsClicked}
-          handleZoomIncrease={handleZoomIncrease}
-          handleZoomDecrease={handleZoomDecrease}
-          timelineZoom={timelineZoom}
-        />;
+        <UserProvider>
+
+          <Navigation />
+          <Component {...pageProps}
+            handlePreviewClick={handlePreviewClick}
+            previewIsClicked={previewIsClicked}
+            entries={entries}
+            handleZoomIncrease={handleZoomIncrease}
+            handleZoomDecrease={handleZoomDecrease}
+          />
+
+        </UserProvider>
       </SWRConfig>
     </div>
   );

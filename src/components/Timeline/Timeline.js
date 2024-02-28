@@ -9,15 +9,15 @@ import useSWR from "swr";
 
 
 
-export default function Timeline({ handlePreviewClick, previewIsClicked, timelineZoom }) {
+export default function Timeline({ handlePreviewClick, previewIsClicked }) {
   const { data: entries, isLoading } = useSWR("/api");
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
   // className={styles.timelineContainer}
 
-  const { current } = timelineZoom;
-  console.log(current);
+  // const { current } = timelineZoom;
+  // console.log(current);
 
 
 

@@ -105,7 +105,7 @@ body {
     ),
     url("../../public/background_square.jpg");
   background-size: cover;
-  font-family: "Cormorant", serif;
+  /* font-family: "Cormorant", serif; */
 }
 
 a {
