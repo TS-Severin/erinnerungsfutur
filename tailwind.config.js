@@ -1,8 +1,11 @@
+const { nextui } = require("@nextui-org/react");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -11,7 +14,9 @@ module.exports = {
         "bricolage": ['var(--font-bricolage)'],
         "comic": ['var(--font-comic)'],
       },
+
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()],
 }

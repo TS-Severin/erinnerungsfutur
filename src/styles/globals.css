@@ -95,17 +95,16 @@ body {
   /* overflow-x: hidden; */
   max-width: 800px;
   margin: 0 auto;
-}
-
-body {
-  color: black;
   background: linear-gradient(
       rgba(255, 255, 255, 0.2),
       rgba(255, 255, 255, 0.2)
     ),
     url("../../public/background_square.jpg");
   background-size: cover;
-  /* font-family: "Cormorant", serif; */
+}
+
+body {
+  color: black;
 }
 
 a {
