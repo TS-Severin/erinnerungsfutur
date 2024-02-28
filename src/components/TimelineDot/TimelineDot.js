@@ -22,7 +22,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
   // Function to update isSmallScreen state based on screen width
   const updateScreenSize = () => {
-    setIsSmallScreen(window.innerWidth < 500);
+    setIsSmallScreen(window.innerWidth < 320);
   };
 
   // Add event listener for screen resize
