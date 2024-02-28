@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-const useFlyInAnimation = (elementRef, index) => {
+export default function useFlyInAnimation(elementRef, index) {
   useEffect(() => {
     const element = elementRef.current;
 
@@ -14,5 +14,3 @@ const useFlyInAnimation = (elementRef, index) => {
     }
   }, [elementRef, index]);
 };
-
-export default useFlyInAnimation;

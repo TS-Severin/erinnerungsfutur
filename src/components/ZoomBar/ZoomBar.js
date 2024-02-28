@@ -1,15 +1,7 @@
 import styles from "./ZoomBar.module.scss";
-import Button from "../Button/Button";
 
 export default function ({ handleZoomIncrease, handleZoomDecrease }) {
 
-    // SETTING ZOOM REF
-    // const handleZoomIncrease = () => {
-    //     timelineZoom.current + 10;
-    // }
-    // const handleZoomDecrease = () => {
-    //     timelineZoom.current - 10;
-    // }
 
 
     return (
