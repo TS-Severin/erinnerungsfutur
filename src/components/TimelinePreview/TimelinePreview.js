@@ -44,7 +44,7 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
                         weiterlesen
                     </Link></p>
                 <p className="font-cormorant italic text-right pt-1">{clickedEntry.author}</p>
-                <div className="absolute top-0 right-2">
+                <div className="absolute top-0 right-0">
                     <ICalDownload date={clickedEntry.date} title={clickedEntry.title} iCalSlug={clickedEntry.slug} text={clickedEntry.text} />
                 </div>
             </div>
