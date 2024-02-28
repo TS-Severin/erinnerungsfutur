@@ -13,7 +13,7 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
     if (!clickedEntryId) {
         return (
 
-            <h1 className="text-xl">Der Pluralistische Gedenkkalender der <Link href="https://www.dialogueperspectives.org/de/coalition-for-pluralistic-public-discourse/">CPPD</Link> umfasst erinnerungspolitische Ereignisse und stellt sie in den Kontext pluralistischen Erinnerns.</h1 >
+            <h1 className="font-bricolage text-xl">Der Pluralistische Gedenkkalender der <Link href="https://www.dialogueperspectives.org/de/coalition-for-pluralistic-public-discourse/">CPPD</Link> umfasst erinnerungspolitische Ereignisse und stellt sie in den Kontext pluralistischen Erinnerns.</h1 >
 
         );
     }
@@ -36,15 +36,15 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
     return (
         <>
             <div className="relative">
-                <h1 className="text-xl">{`${clickedEntry.datestring} -`}</h1>
-                <h1 className="text-xl w-2/3">{`${clickedEntry.title}`}</h1>
-                <p className="pt-4">
+                <h1 className="font-bricolage font-extralight text-2xl">{`${clickedEntry.datestring}`}</h1>
+                <h1 className="font-bricolage font-extralight text-2xl pt-4">{`${clickedEntry.title}`}</h1>
+                <p className="font-cormorant pt-4">
                     {`${previewText} ... `}
-                    <Link href={`/${clickedEntry.slug}`} className="underline">
+                    <Link href={`/${clickedEntry.slug}`} className="font-cormorant underline">
                         weiterlesen
                     </Link></p>
-                <p className="italic text-right pt-1">{clickedEntry.author}</p>
-                <div className="absolute top-4 right-4">
+                <p className="font-cormorant italic text-right pt-1">{clickedEntry.author}</p>
+                <div className="absolute top-0 right-0">
                     <ICalDownload date={clickedEntry.date} title={clickedEntry.title} iCalSlug={clickedEntry.slug} text={clickedEntry.text} />
                 </div>
             </div>

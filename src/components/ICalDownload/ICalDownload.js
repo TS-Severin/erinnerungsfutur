@@ -20,7 +20,7 @@ export default function ICalDownload({ date, title, iCalSlug, text }) {
         <>
             <Link href={icalDownloadLink} download={`${iCalSlug}.ics`}>
 
-                <Image src="/calenderFresh.png" alt="icon for ical data download" width={25} height={25} />
+                <Image src="/calenderFresh.png" alt="icon for ical data download" width={30} height={30} />
 
             </Link>
         </>
