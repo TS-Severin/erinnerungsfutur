@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 
 
-export default function TimelineAxis({ title, date }) {
+export default function TimelineAxis({ title, date, timelineZoom = { timelineZoom } }) {
     const currentPercentOfYear = GetCurrentDayOfYearHelper();
     return (
 
         <>
-            <StyledTimelineAxis $currentPercentOfYear={currentPercentOfYear} />
+            <StyledTimelineAxis $currentPercentOfYear={currentPercentOfYear} $timelineZoom={timelineZoom} />
         </>
 
     );
@@ -19,7 +19,8 @@ export default function TimelineAxis({ title, date }) {
 const StyledTimelineAxis = styled.span`
 position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
-width: 2px;
-height: 24px;
+width: ${(props) => (props.$timelineZoom / 250 + 2)}px;
+height: ${(props) => (props.$timelineZoom / 100 + 24)}px;
 overflow: visible;
-background-color: black;`;
+background-color: black;
+z-index: 100`;

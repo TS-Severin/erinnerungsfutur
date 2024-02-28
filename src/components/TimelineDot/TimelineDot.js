@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 import useGSAP from "./useDotAnimation";
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import getRandomPurple from "@/services/GetRandomPurple";
 
-export default function TimelineDot({ id, date, slug, handlePreviewClick }) {
+export default function TimelineDot({ id, date, slug, handlePreviewClick, timelineZoom }) {
   const percentOfYear = GetDayOfYearHelper(date);
 
   // random purple for each dot
@@ -16,31 +16,61 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick }) {
 
   // Apply GSAP animation when the component mounts
   useGSAP(dotRef);
+
+  // State to track screen width
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // Function to update isSmallScreen state based on screen width
+  const updateScreenSize = () => {
+    setIsSmallScreen(window.innerWidth < 320);
+  };
+
+  // Add event listener for screen resize
+  useEffect(() => {
+    updateScreenSize(); // Initial check
+    window.addEventListener('resize', updateScreenSize);
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []); // Empty dependency array to run only on mount and unmount
+
   return (
     <>
-      <Link href={`/${slug}`}>
-        <StyledTimelineDot key={id}
+      {!isSmallScreen && (
+        <Link href={`/${slug}`}>
+          <StyledTimelineDot
+            key={id}
+            ref={dotRef}
+            $randomPurple={randomPurple}
+            $percentOfYear={percentOfYear}
+            onMouseEnter={() => handlePreviewClick(id)}
+            $timelineZoom={timelineZoom}
+          />
+        </Link>
+      )}
+      {isSmallScreen && (
+
+        <StyledTimelineDot
+          key={id}
           ref={dotRef}
           $randomPurple={randomPurple}
           $percentOfYear={percentOfYear}
-          onMouseEnter={() => handlePreviewClick(id)}
-        >
-        </StyledTimelineDot>
-      </Link>
+          onClick={() => handlePreviewClick(id)}
+          $timelineZoom={timelineZoom}
+        />
+
+      )}
     </>
   );
 }
-// onclick={handlePreviewClick}
-// href={`/${slug}`}
-// ${(props) => props.randomPurple}
 
 const StyledTimelineDot = styled.div`
 position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 overflow: visible;
-height: 8px;
-width: 8px;
+height: ${(props) => (props.$timelineZoom / 100 + 8)}px;
+width: ${(props) => (props.$timelineZoom / 100 + 8)}px;
 background-color: ${(props) => props.$randomPurple};
 border-radius: 50%;
 display: inline-block;

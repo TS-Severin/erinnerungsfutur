@@ -14,34 +14,37 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
-
-
-
   return (
     <>
       <div className={styles.timelineWindowContainer}>
         <div style={{ width: `${timelineZoom}%` }} className="flex flex-col bg-white h-32"
         >
           <div className={styles.timelineTodayContainer}>
-            <TimelineToday entries={entries} previewIsClicked={previewIsClicked} />
+            <TimelineToday entries={entries} previewIsClicked={previewIsClicked} timelineZoom={timelineZoom} />
           </div>
-          <div className={styles.timelineAxisContainer}>
-            <TimelineAxis />
+          <div className="relative top-[51%] w-full">
+            <TimelineAxis timelineZoom={timelineZoom} />
           </div>
-          <span className={styles.timelineLine}>
-          </span>
+          <StyledTimelineLine $timelineZoom={timelineZoom} />
           <div className={styles.timelineDotContainer}>
 
             {entries &&
               entries.map(({ id, date, color, slug }) => (
-                <TimelineDot key={id} date={date} color={color} slug={slug} id={id} handlePreviewClick={handlePreviewClick} />
+                <TimelineDot key={id} date={date} color={color} slug={slug} id={id} handlePreviewClick={handlePreviewClick} timelineZoom={timelineZoom} />
               ))}
 
           </div>
-          <div className={styles.timelineMonthContainer}><TimelineMonths /></div>
+          <div className={styles.timelineMonthContainer}><TimelineMonths timelineZoom={timelineZoom} /></div>
         </div >
       </div>
     </>
   );
 }
 
+const StyledTimelineLine = styled.span`
+  width: 100%;
+  height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
+  background-color: red;
+  position: relative;
+  top: ${(props) => (props.$timelineZoom / 200 + 60)}%;;
+`

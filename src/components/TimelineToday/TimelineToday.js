@@ -4,7 +4,7 @@ import GetMonthDayDateHelper from "../../services/GetMonthDayDateHelper";
 import GetCurrentDayOfYearHelper from "@/services/GetCurrentDayOfYearHelper";
 import styled from "styled-components";
 
-export default function TimelineToday({ entries, previewIsClicked }) {
+export default function TimelineToday({ entries, previewIsClicked, timelineZoom }) {
 
     // Function to find an entry in the array with today's date
     function findEntryWithTodayDate(entries) {
@@ -43,11 +43,11 @@ export default function TimelineToday({ entries, previewIsClicked }) {
     // gets the position of today on the X axis
     const currentPercentOfYear = GetCurrentDayOfYearHelper();
     return (
-        <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear}>
-            <h3 className="font-bricolage text-sm">{todayFullDate}</h3>
+        <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear} $timelineZoom={timelineZoom}>
+            <h3 className="font-bricolage">{todayFullDate}</h3>
             {todayEntry && (
                 clickedEntryId === undefined || clickedEntryId.id !== todayEntry.id ? (
-                    <p className="font-comic text-sm">{todayEntry.title}</p>
+                    <p className="font-comic">{todayEntry.title}</p>
                 ) : null
             )}
 
@@ -64,4 +64,5 @@ position: absolute;
 left: ${(props) => props.$currentPercentOfYear}%;
 overflow: visible;
 transform: translateX(5px);
+font-size: ${(props) => (props.$timelineZoom / 1000 + 0.8)}rem;
 `;

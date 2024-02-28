@@ -3,7 +3,7 @@ import GetDayOfYearHelper from "../../services/GetDayOfYearHelper";
 
 
 
-export default function TimelineMonths() {
+export default function TimelineMonths({ timelineZoom }) {
     const months = [
         { month: "jan", dateToBeShown: "2024-01-15" },
         { month: "feb", dateToBeShown: "2024-02-14" },
@@ -28,7 +28,8 @@ export default function TimelineMonths() {
             {months.map(month => {
                 const percentOfYear = calculatePercentOfYear(month.dateToBeShown);
                 return (
-                    <StyledMonth className="font-bricolage" key={month.month} $percentOfYear={percentOfYear}>
+                    <StyledMonth className="font-bricolage" key={month.month} $percentOfYear={percentOfYear}
+                        $timelineZoom={timelineZoom}>
                         {month.month}
                     </StyledMonth>
 
@@ -44,6 +45,10 @@ position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 text-transform: uppercase;
-font-size: 0.6rem;
 overflow: visible;
+font-size: ${(props) => (props.$timelineZoom / 1000 + 0.7)}rem;
 `;
+
+// timelineZoom = { timelineZoom }
+
+// ${(props) => (props.$timelineZoom / 1000 + 0.7)}rem;

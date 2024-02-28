@@ -26,7 +26,7 @@
   align-items: center;
   justify-items: center;
   position: relative;
-  top: 79%;
+  top: 57%;
 }
 
 // class as tailwind: className="flex w-full align-middle justify-center relative top-20"
@@ -41,20 +41,14 @@
 
 .timelineTodayContainer {
   position: relative;
-  top: 28%;
-  width: 100%;
-}
-
-.timelineAxisContainer {
-  position: relative;
-  top: 73%;
+  top: -8%;
   width: 100%;
 }
 
 .timelineMonthContainer {
   width: 100%;
   position: relative;
-  top: 85%;
+  top: 70%;
   align-items: center;
   justify-items: center;
 }
