@@ -2,7 +2,7 @@ export default function GetPreviewText(text) {
     // Split the text into words
     const words = text.split(/\s+/);
 
-    // Take the first 150 words
+    // first words number
     const previewWords = words.slice(0, 20);
 
     // Join the words back into a string

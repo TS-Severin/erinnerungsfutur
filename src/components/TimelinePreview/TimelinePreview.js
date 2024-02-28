@@ -41,12 +41,12 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
             <div className="relative">
                 <h1 className="font-bricolage font-extralight text-2xl">{`${clickedEntry.datestring}`}</h1>
                 <h1 className="font-bricolage font-extralight text-2xl pt-4">{`${clickedEntry.title}`}</h1>
-                <p className="font-cormorant pt-4">
-                    {`${previewText} ... `}
-                    <Link href={`/${clickedEntry.slug}`} className="font-cormorant underline">
-                        weiterlesen
-                    </Link></p>
-                <p className="font-cormorant italic text-right pt-1">{clickedEntry.author}</p>
+                <p className="max-sm:hidden font-cormorant pt-4">
+                    {`${previewText} ... `}</p>
+                <Link href={`/${clickedEntry.slug}`} className="font-cormorant underline max-sm:pt-8">
+                    ganzen Text lesen
+                </Link>
+                <p className="max-sm:hidden font-cormorant italic text-right pt-1">{clickedEntry.author}</p>
                 <div className="absolute top-0 right-0">
                     <ICalDownload date={clickedEntry.date} title={clickedEntry.title} iCalSlug={clickedEntry.slug} text={clickedEntry.text} />
                 </div>
