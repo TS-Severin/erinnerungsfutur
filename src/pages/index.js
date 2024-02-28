@@ -5,7 +5,7 @@ import ZoomBar from "@/components/ZoomBar/ZoomBar";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import AdminBar from "@/components/AdminBar/AdminBar";
 
-export default function Home({ handlePreviewClick, previewIsClicked, entries, handleZoomIncrease, handleZoomDecrease, timelineZoom }) {
+export default function Home({ handlePreviewClick, previewIsClicked, entries, handleZoomChange, timelineZoom }) {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -25,8 +25,7 @@ export default function Home({ handlePreviewClick, previewIsClicked, entries, ha
             <AdminBar entries={entries} />
           ) : null}
           <Preview previewIsClicked={previewIsClicked} />
-          <ZoomBar handleZoomIncrease={handleZoomIncrease}
-            handleZoomDecrease={handleZoomDecrease} />
+          <ZoomBar handleZoomChange={handleZoomChange} />
           <Timeline
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}

@@ -45,8 +45,6 @@ export default function App({ Component, pageProps }) {
   const [timelineZoom, setTimelineZoom] =
     useState(100);
 
-  // INITIALIZING REF FOR ZOOM
-  // let timelineZoom = useRef(100);
 
 
   // INITIALIZING STATE FOR PREVIEW
@@ -61,27 +59,20 @@ export default function App({ Component, pageProps }) {
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
 
-  // SETTING REF FOR ZOOM
-
-  // const handleZoomIncrease = () => {
-  //   timelineZoom.current += 10;
-  //   console.log("ZOOM: ", timelineZoom);
-  // }
-  // const handleZoomDecrease = () => {
-  //   timelineZoom.current -= 10;
-  //   console.log("ZOOM: ", timelineZoom);
-  // }
-
-
-  // console.log("ZOOM: ", timelineZoom);
 
   // SETTING ZOOM STATE
-  const handleZoomIncrease = () => {
-    setTimelineZoom(prevZoom => prevZoom + 10);
+  // const handleZoomIncrease = () => {
+  //   setTimelineZoom(prevZoom => prevZoom + 10);
+  // }
+  // const handleZoomDecrease = () => {
+  //   setTimelineZoom(prevZoom => prevZoom - 10);
+  // }
+
+  const handleZoomChange = (value) => {
+    setTimelineZoom(value);
   }
-  const handleZoomDecrease = () => {
-    setTimelineZoom(prevZoom => prevZoom - 10);
-  }
+
+
   console.log("ZOOM: ", timelineZoom);
 
 
@@ -111,8 +102,7 @@ export default function App({ Component, pageProps }) {
               handlePreviewClick={handlePreviewClick}
               previewIsClicked={previewIsClicked}
               entries={entries}
-              handleZoomIncrease={handleZoomIncrease}
-              handleZoomDecrease={handleZoomDecrease}
+              handleZoomChange={handleZoomChange}
               timelineZoom={timelineZoom}
             />
 
