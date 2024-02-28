@@ -1,6 +1,6 @@
 import styles from "./ZoomBar.module.scss";
 
-export default function ({ handleZoomIncrease, handleZoomDecrease }) {
+export default function ZoomBar({ handleZoomIncrease, handleZoomDecrease }) {
 
 
 
