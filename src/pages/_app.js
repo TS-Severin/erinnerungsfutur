@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }) {
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
             entries={entries}
-          />;
+          />
         </UserProvider>
       </SWRConfig>
     </div>
