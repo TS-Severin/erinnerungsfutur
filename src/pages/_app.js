@@ -7,7 +7,7 @@ import useSWR from "swr";
 import { useRef } from "react";
 import { Cormorant_Garamond, Bricolage_Grotesque, Comic_Neue } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-
+import { NextUIProvider } from "@nextui-org/react";
 
 
 const cormorant = Cormorant_Garamond({
@@ -100,22 +100,25 @@ export default function App({ Component, pageProps }) {
 
   // timelineZoom={timelineZoom}
   return (
-    <div className={`${cormorant.variable}  ${bricolage.variable} ${comic.variable} `}>
-      <SWRConfig value={{ fetcher }}>
-        <UserProvider>
+    <NextUIProvider>
+      <div className={`${cormorant.variable}  ${bricolage.variable} ${comic.variable} `}>
+        <SWRConfig value={{ fetcher }}>
+          <UserProvider>
 
-          <Navigation />
-          <Component {...pageProps}
-            handlePreviewClick={handlePreviewClick}
-            previewIsClicked={previewIsClicked}
-            entries={entries}
-            handleZoomIncrease={handleZoomIncrease}
-            handleZoomDecrease={handleZoomDecrease}
-            timelineZoom={timelineZoom}
-          />
 
-        </UserProvider>
-      </SWRConfig>
-    </div>
+            <Navigation />
+            <Component {...pageProps}
+              handlePreviewClick={handlePreviewClick}
+              previewIsClicked={previewIsClicked}
+              entries={entries}
+              handleZoomIncrease={handleZoomIncrease}
+              handleZoomDecrease={handleZoomDecrease}
+              timelineZoom={timelineZoom}
+            />
+
+          </UserProvider>
+        </SWRConfig>
+      </div>
+    </NextUIProvider>
   );
 }
