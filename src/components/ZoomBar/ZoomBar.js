@@ -1,4 +1,5 @@
 import styles from "./ZoomBar.module.scss";
+import Button from "../Button/Button";
 
 export default function ({ handleZoomIncrease, handleZoomDecrease }) {
 
@@ -12,9 +13,9 @@ export default function ({ handleZoomIncrease, handleZoomDecrease }) {
 
 
     return (
-        <div className={styles.zoomBarContainer}><button onClick={handleZoomDecrease} className="text-2xl">-</button>
-            <button onClick={handleZoomIncrease} className="text-2xl">+</button>
+        <div className={styles.zoomBarContainer}><button className="font-bricolage p-2 border-4 rounded-full shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" onClick={handleZoomDecrease}>-</button>
+            <button onClick={handleZoomIncrease} className="font-bricolage p-2 border-4 rounded-full shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out"> +</button>
 
-        </div>
+        </div >
     );
 }

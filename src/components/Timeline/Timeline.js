@@ -9,22 +9,18 @@ import useSWR from "swr";
 
 
 
-export default function Timeline({ handlePreviewClick, previewIsClicked }) {
+export default function Timeline({ handlePreviewClick, previewIsClicked, timelineZoom }) {
   const { data: entries, isLoading } = useSWR("/api");
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  // className={styles.timelineContainer}
-
-  // const { current } = timelineZoom;
-  // console.log(current);
 
 
 
   return (
     <>
       <div className={styles.timelineWindowContainer}>
-        <StyledTimelineContainer
+        <div style={{ width: `${timelineZoom}%` }} className="flex flex-col bg-white h-32"
         >
           <div className={styles.timelineTodayContainer}>
             <TimelineToday entries={entries} previewIsClicked={previewIsClicked} />
@@ -43,19 +39,9 @@ export default function Timeline({ handlePreviewClick, previewIsClicked }) {
 
           </div>
           <div className={styles.timelineMonthContainer}><TimelineMonths /></div>
-        </StyledTimelineContainer >
+        </div >
       </div>
     </>
   );
 }
-
-
-const StyledTimelineContainer = styled.div`
-display: flex;
-flex-direction: column;
-width: 200%;
-background-color: white;
-height: 8rem;
-`;
-
 
