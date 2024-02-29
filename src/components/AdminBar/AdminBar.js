@@ -36,7 +36,7 @@ export default function AdminBar({ entries }) {
 
                 {/* <ul className="flex space-x-4"> */}
 
-                <Link className="font-bricolage mr-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" href="http://localhost:3000/api/auth/logout">Logout</Link>
+                <Link className="font-bricolage mr-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" href="/api/auth/logout">Logout</Link>
 
                 <button onClick={() => setIsAddMode(!isAddMode)} className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">{isAddMode ? "Schließen" : "Neuer Eintrag"}</button>
                 {isAddMode && <EntryForm entries={entries} onHandleSubmit={handleSubmit} />}
