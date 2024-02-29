@@ -69,8 +69,8 @@ export default function DateDetailsPage() {
       <div className="relative bg-white m-4 p-8 border-4 rounded-3xl shadow-xl">
         {user ? (
           <>
-            <button className="mr-6 font-bold" onClick={handleDelete}>Eintrag löschen</button>
-            <button onClick={() => setIsEditMode(!isEditMode)} className="mr-6 font-bold">{isEditMode ? "Schließen" : "Eintrag bearbeiten"}</button>
+            <button className="font-bricolage mr-8 mb-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" onClick={handleDelete}>Eintrag löschen</button>
+            <button onClick={() => setIsEditMode(!isEditMode)} className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">{isEditMode ? "Schließen" : "Eintrag bearbeiten"}</button>
             {isEditMode && <EntryForm onHandleSubmit={handleEdit} entries={entries} update />}
 
           </>
