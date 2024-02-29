@@ -65,4 +65,5 @@ left: ${(props) => props.$currentPercentOfYear}%;
 overflow: visible;
 transform: translateX(5px);
 font-size: ${(props) => (props.$timelineZoom / 1000 + 0.8)}rem;
+transition: all 0.3s ease;
 `;
