@@ -1,9 +1,5 @@
 import { useRouter } from "next/router"
 import useSWR from "swr"
-import GenerateICalFiles from "@/services/GenerateICalFile";
-import Link from "next/link"
-import Image from "next/image"
-import GetPreviewText from "@/services/GetPreviewText";
 import ICalDownload from "@/components/ICalDownload/ICalDownload";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useState } from "react";
@@ -32,15 +28,17 @@ export default function DateDetailsPage() {
   };
 
   const handleDelete = async () => {
-    const response = await fetch(`/api/${slug}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      await response.json();
-
-      router.push("/");
-    } else {
-      console.error(`Error: ${response.status}`);
+    if (confirm("Wirklich löschen?")) {
+      const response = await fetch(`/api/${slug}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        await response.json();
+        alert("Gelöscht!")
+        router.push("/");
+      } else {
+        console.error(`Error: ${response.status}`);
+      }
     }
   };
 
@@ -58,6 +56,7 @@ export default function DateDetailsPage() {
     if (response.ok) {
       mutate();
       setIsEditMode(false);
+      alert("Bearbeitet!")
       router.push("/");
     } else {
       console.error(`Error: ${response.status}`);
