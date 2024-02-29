@@ -50,7 +50,7 @@ const StyledTimelineLine = styled.span`
   @media (max-width: 640px) {
     width: 100%;
   height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
-  background-color: grey;
+  background-color: red;
   position: relative;
   top: ${(props) => (props.$timelineZoom / 200 + 63)}%;;
   transition: all 0.3s ease;
