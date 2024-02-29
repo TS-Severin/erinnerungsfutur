@@ -13,44 +13,44 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
                     <h1 className="font-bricolage mb-4 text-xl">
                         {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
-                    <label htmlFor="date" className="font-bricolage mb-4">
-                        Datum für Position in der Timeline:
-                        <input type="date" id="date" name="date" required defaultValue={entries.date}
-                            placeholder="jjjj-mm-tt" />
-                    </label>
-
-                    <label htmlFor="slug" className="font-bricolage mb-4">
-                        Slug:
-                        <input type="text" id="slug" name="slug" required
-                            defaultValue={entries.slug}
-                            placeholder="titel-des-eintrags" />
-                    </label>
-
-                    <label htmlFor="datestring" className="font-bricolage mb-4">
-                        Datum wie es angezeigt wird:
-                        <input type="text" id="datestring" name="datestring" required
-                            defaultValue={entries.datestring}
-                            placeholder="Tag. Monat, z. B.: 26. März" />
-                    </label>
+                    <label htmlFor="date" className="font-bricolage mb-2 mt-2">
+                        Datum für Position in der Timeline:</label>
+                    <input style={{ width: 'fit-content' }} type="date" id="date" name="date" required defaultValue={entries.date}
+                        placeholder="jjjj-mm-tt" autoFocus />
 
 
-                    <label htmlFor="title" className="font-bricolage mb-4">
-                        Titel:
-                        <input type="text" id="title" name="title" required
-                            defaultValue={entries.title}
-                            placeholder="Titel des Ereignisses" />
-                    </label>
+                    <label htmlFor="slug" className="font-bricolage mb-2 mt-2">
+                        Slug:</label>
+                    <input style={{ width: 'fit-content' }} type="text" id="slug" name="slug" required
+                        defaultValue={entries.slug}
+                        placeholder="titel-des-eintrags" className="w-auto" />
 
-                    <label htmlFor="author" className="font-bricolage mb-4">
-                        Autor:in:
-                        <input type="text" id="author" name="author" required
-                            defaultValue={entries.author}
-                            placeholder="Vorname Nachname" />
-                    </label>
 
-                    <label htmlFor="textarea" className="font-bricolage mb-4">
+                    <label htmlFor="datestring" className="font-bricolage mb-2 mt-2">
+                        Datum wie es angezeigt wird:</label>
+                    <input style={{ width: 'fit-content' }} type="text" id="datestring" name="datestring" required
+                        defaultValue={entries.datestring}
+                        placeholder="Tag. Monat, z. B.: 26. März" />
+
+
+
+                    <label htmlFor="title" className="font-bricolage mb-2 mt-2">
+                        Titel:</label>
+                    <input style={{ width: 'fit-content' }} type="text" id="title" name="title" required
+                        defaultValue={entries.title}
+                        placeholder="Titel des Ereignisses" />
+
+
+                    <label htmlFor="author" className="font-bricolage mb-2 mt-2">
+                        Autor:in:</label>
+                    <input style={{ width: 'fit-content' }} type="text" id="author" name="author" required
+                        defaultValue={entries.author}
+                        placeholder="Vorname Nachname" />
+
+
+                    <label htmlFor="textarea" className="font-bricolage mb-2 mt-2">
                         Text:</label>
-                    <textarea rows="5" cols="33" id="text" name="text" required
+                    <textarea rows="20" cols="33" id="text" name="text" required
                         defaultValue={entries.text}
                         placeholder="kompletter Text" />
 
