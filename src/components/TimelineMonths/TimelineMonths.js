@@ -46,9 +46,7 @@ left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 text-transform: uppercase;
 overflow: visible;
-font-size: ${(props) => (props.$timelineZoom / 1000 + 0.7)}rem;
+font-size: ${(props) => (props.$timelineZoom / 7600 + 0.7)}rem;
+transition: all 0.3s ease;
 `;
 
-// timelineZoom = { timelineZoom }
-
-// ${(props) => (props.$timelineZoom / 1000 + 0.7)}rem;

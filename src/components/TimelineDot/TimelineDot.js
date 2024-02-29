@@ -13,6 +13,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
   // define reference for gsap animatin of dots (pass as props)
   const dotRef = useRef(null);
+  const mobileDotRef = useRef(null);
 
   // Apply GSAP animation when the component mounts
   useGSAP(dotRef);
@@ -22,7 +23,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
   // Function to update isSmallScreen state based on screen width
   const updateScreenSize = () => {
-    setIsSmallScreen(window.innerWidth < 600);
+    setIsSmallScreen(window.innerWidth < 640);
   };
 
   // Add event listener for screen resize
@@ -52,7 +53,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
         <StyledTimelineDotMobile
           key={id}
-          ref={dotRef}
+          ref={mobileDotRef}
           $randomPurple={randomPurple}
           $percentOfYear={percentOfYear}
           onClick={() => handlePreviewClick(id)}
@@ -74,6 +75,7 @@ width: ${(props) => (props.$timelineZoom / 100 + 8)}px;
 background-color: ${(props) => props.$randomPurple};
 border-radius: 50%;
 display: inline-block;
+z-index: 1000;
 justify-self: center;
 transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
 transition-timing-function: ease-out;

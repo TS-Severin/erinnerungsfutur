@@ -24,4 +24,5 @@ height: ${(props) => (props.$timelineZoom / 100 + 24)}px;
 overflow: visible;
 background-color: black;
 z-index: 1000
+transition: all 0.3s ease;
 `;
