@@ -44,7 +44,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
 const StyledTimelineLine = styled.span`
   width: 100%;
   height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
-  background-color: red;
+  background-color: grey;
   position: relative;
   top: ${(props) => (props.$timelineZoom / 200 + 60)}%;;
 `
