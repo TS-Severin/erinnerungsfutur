@@ -25,13 +25,14 @@ export default function Home({ handlePreviewClick, previewIsClicked, entries, ha
             <AdminBar entries={entries} />
           ) : null}
           <Preview previewIsClicked={previewIsClicked} />
-          <ZoomBar handleZoomChange={handleZoomChange} />
+
           <Timeline
             handlePreviewClick={handlePreviewClick}
             previewIsClicked={previewIsClicked}
             timelineZoom={timelineZoom}
 
           />
+          <ZoomBar handleZoomChange={handleZoomChange} />
         </div>
       </main>
     </>

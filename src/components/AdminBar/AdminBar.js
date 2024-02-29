@@ -34,7 +34,7 @@ export default function AdminBar({ entries }) {
             <div className="mt-4 ml-0 mr-0 p-8 bg-white border-4 rounded-3xl shadow-xl">
 
 
-                {/* <ul className="flex space-x-4"> */}
+
 
                 <Link className="font-bricolage mr-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" href="/api/auth/logout">Logout</Link>
 
@@ -42,7 +42,7 @@ export default function AdminBar({ entries }) {
                 {isAddMode && <EntryForm entries={entries} onHandleSubmit={handleSubmit} />}
 
 
-                {/* </ul> */}
+
 
             </div>
         </>

@@ -1,4 +1,3 @@
-import styles from "./ZoomBar.module.scss";
 import { Slider } from "@nextui-org/slider";
 
 export default function ZoomBar({ handleZoomChange }) {
@@ -11,13 +10,9 @@ export default function ZoomBar({ handleZoomChange }) {
 
 
     return (
-        <div className={styles.zoomBarContainer}>
-
-            {/* <button className="font-bricolage p-2 border-4 rounded-full shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" onClick={handleZoomDecrease}>-</button> */}
+        <div className="flex justify-evenly w-full rounded-b-3xl bg-white border-4 p-2">
 
 
-
-            {/* <button onClick={handleZoomIncrease} className="font-bricolage p-2 border-4 rounded-full shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out"> +</button> */}
 
             <Slider
 
