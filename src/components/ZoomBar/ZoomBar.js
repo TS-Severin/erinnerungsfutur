@@ -15,7 +15,7 @@ export default function ZoomBar({ handleZoomChange }) {
 
 
             <Slider
-
+                color="secondary"
                 aria-label="zoom timeline"
                 step={10}
                 maxValue={1000}
