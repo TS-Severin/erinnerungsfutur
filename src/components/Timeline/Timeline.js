@@ -22,7 +22,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
           <div className={styles.timelineTodayContainer}>
             <TimelineToday entries={entries} previewIsClicked={previewIsClicked} timelineZoom={timelineZoom} />
           </div>
-          <div className="relative top-[51%] w-full">
+          <div className="relative top-[51%] max-sm:top-[54%] w-full">
             <TimelineAxis timelineZoom={timelineZoom} />
           </div>
           <StyledTimelineLine $timelineZoom={timelineZoom} />
@@ -47,4 +47,11 @@ const StyledTimelineLine = styled.span`
   background-color: grey;
   position: relative;
   top: ${(props) => (props.$timelineZoom / 200 + 60)}%;;
+  @media (max-width: 640px) {
+    width: 100%;
+  height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
+  background-color: grey;
+  position: relative;
+  top: ${(props) => (props.$timelineZoom / 200 + 63)}%;;
+  }
 `
