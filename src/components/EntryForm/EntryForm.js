@@ -10,23 +10,23 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
         <>
             <div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
                 <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
-                    <h1 className="font-bold">
+                    <h1 className="font-bricolage mb-4 text-xl">
                         {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
-                    <label htmlFor="date">
+                    <label htmlFor="date" className="font-bricolage mb-4">
                         Datum für Position in der Timeline:
                         <input type="date" id="date" name="date" required defaultValue={entries.date}
                             placeholder="jjjj-mm-tt" />
                     </label>
 
-                    <label htmlFor="slug">
+                    <label htmlFor="slug" className="font-bricolage mb-4">
                         Slug:
                         <input type="text" id="slug" name="slug" required
                             defaultValue={entries.slug}
                             placeholder="titel-des-eintrags" />
                     </label>
 
-                    <label htmlFor="datestring">
+                    <label htmlFor="datestring" className="font-bricolage mb-4">
                         Datum wie es angezeigt wird:
                         <input type="text" id="datestring" name="datestring" required
                             defaultValue={entries.datestring}
@@ -34,28 +34,28 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
                     </label>
 
 
-                    <label htmlFor="title">
+                    <label htmlFor="title" className="font-bricolage mb-4">
                         Titel:
                         <input type="text" id="title" name="title" required
                             defaultValue={entries.title}
                             placeholder="Titel des Ereignisses" />
                     </label>
 
-                    <label htmlFor="author">
+                    <label htmlFor="author" className="font-bricolage mb-4">
                         Autor:in:
                         <input type="text" id="author" name="author" required
                             defaultValue={entries.author}
                             placeholder="Vorname Nachname" />
                     </label>
 
-                    <label htmlFor="textarea">
+                    <label htmlFor="textarea" className="font-bricolage mb-4">
                         Text:</label>
                     <textarea rows="5" cols="33" id="text" name="text" required
                         defaultValue={entries.text}
                         placeholder="kompletter Text" />
 
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">Speichern</button>
                 </form>
             </div>
         </>
