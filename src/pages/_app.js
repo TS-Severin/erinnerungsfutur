@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
   // do it once when loading
   useEffect(() => {
     if (entries.length > 0) {
-      const initialState = entries.map(entry => ({ id: entry.id, clicked: false }));
+      const initialState = entries.map(entry => ({ id: entry._id, clicked: false }));
       setPreviewIsClicked(initialState);
     }
   }, [entries]);
@@ -68,7 +68,6 @@ export default function App({ Component, pageProps }) {
       ))
 
     );
-    console.log(clickedId);
   };
 
 

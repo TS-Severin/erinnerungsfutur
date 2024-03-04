@@ -46,7 +46,7 @@ export default function TimelineToday({ entries, previewIsClicked, timelineZoom 
         <StyledTodayFullDate $currentPercentOfYear={currentPercentOfYear} $timelineZoom={timelineZoom}>
             <h3 className="font-bricolage">{todayFullDate}</h3>
             {todayEntry && (
-                clickedEntryId === undefined || clickedEntryId.id !== todayEntry.id ? (
+                clickedEntryId === undefined || clickedEntryId.id !== todayEntry._id ? (
                     <p className="font-bricolage">{todayEntry.title}</p>
                 ) : null
             )}
