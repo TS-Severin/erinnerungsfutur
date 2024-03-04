@@ -45,8 +45,9 @@ export default function App({ Component, pageProps }) {
   // do it once when loading
   useEffect(() => {
     if (entries.length > 0) {
-      const initialState = entries.map(entry => ({ id: entry.id, clicked: false }));
+      const initialState = entries.map(entry => ({ id: entry._id, clicked: false }));
       setPreviewIsClicked(initialState);
+      console.log("previewIsClicked initialState in _app.js: ", previewIsClicked)
     }
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
@@ -68,7 +69,7 @@ export default function App({ Component, pageProps }) {
       ))
 
     );
-    console.log(clickedId);
+    console.log("clickedId in _app.js:", clickedId);
   };
 
 

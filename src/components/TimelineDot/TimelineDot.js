@@ -34,6 +34,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
     };
   }, []); // Empty dependency array to run only on mount and unmount
 
+
   return (
     <>
       {!isSmallScreen && (

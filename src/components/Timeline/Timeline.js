@@ -29,7 +29,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
           <div className={styles.timelineDotContainer}>
 
             {entries &&
-              entries.map(({ id, date, color, slug }) => (
+              entries.map(({ _id: id, date, color, slug }) => (
                 <TimelineDot key={id} date={date} color={color} slug={slug} id={id} handlePreviewClick={handlePreviewClick} timelineZoom={timelineZoom} />
               ))}
 
