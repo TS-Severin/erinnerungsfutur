@@ -7,7 +7,6 @@ import getRandomPurple from "@/services/GetRandomPurple";
 
 export default function TimelineDot({ id, date, slug, handlePreviewClick, timelineZoom }) {
   const percentOfYear = GetDayOfYearHelper(date);
-
   // random purple for each dot
   const randomPurple = getRandomPurple();
 

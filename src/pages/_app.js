@@ -4,7 +4,6 @@ import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
-import { useRef } from "react";
 import { Cormorant_Garamond, Bricolage_Grotesque } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { NextUIProvider } from "@nextui-org/react";
@@ -34,7 +33,6 @@ export default function App({ Component, pageProps }) {
 
   const { data: entries = [], isLoading } = useSWR("/api");
 
-
   // INITIALIZING STATE FOR ZOOM
   const [timelineZoom, setTimelineZoom] =
     useState(100);
@@ -53,21 +51,9 @@ export default function App({ Component, pageProps }) {
   }, [entries]);
   if (isLoading) return <div>Loading...</div>;
 
-
-  // SETTING ZOOM STATE
-  // const handleZoomIncrease = () => {
-  //   setTimelineZoom(prevZoom => prevZoom + 10);
-  // }
-  // const handleZoomDecrease = () => {
-  //   setTimelineZoom(prevZoom => prevZoom - 10);
-  // }
-
   const handleZoomChange = (value) => {
     setTimelineZoom(value);
   }
-
-
-  console.log("ZOOM: ", timelineZoom);
 
 
   // SETTING CLICK STATE
@@ -78,8 +64,11 @@ export default function App({ Component, pageProps }) {
       prevState.map(entry => ({
         ...entry,
         clicked: entry.id === clickedId ? true : false
-      }))
+      }
+      ))
+
     );
+    console.log(clickedId);
   };
 
 
