@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
 import { useRef } from "react";
-import { Cormorant_Garamond, Bricolage_Grotesque, Comic_Neue } from 'next/font/google'
+import { Cormorant_Garamond, Bricolage_Grotesque } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { NextUIProvider } from "@nextui-org/react";
 
@@ -20,12 +20,6 @@ const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-bricolage',
-})
-
-const comic = Comic_Neue({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-comic',
 })
 
 export default function App({ Component, pageProps }) {
@@ -92,7 +86,7 @@ export default function App({ Component, pageProps }) {
   // timelineZoom={timelineZoom}
   return (
     <NextUIProvider>
-      <div className={`${cormorant.variable}  ${bricolage.variable} ${comic.variable} `}>
+      <div className={`${cormorant.variable}  ${bricolage.variable} `}>
         <SWRConfig value={{ fetcher }}>
           <UserProvider>
 

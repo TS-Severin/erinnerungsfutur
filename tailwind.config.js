@@ -12,7 +12,6 @@ module.exports = {
       fontFamily: {
         "cormorant": ['var(--font-cormorant)'],
         "bricolage": ['var(--font-bricolage)'],
-        "comic": ['var(--font-comic)'],
       },
 
     },
