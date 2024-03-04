@@ -47,7 +47,7 @@ export default function TimelineToday({ entries, previewIsClicked, timelineZoom 
             <h3 className="font-bricolage">{todayFullDate}</h3>
             {todayEntry && (
                 clickedEntryId === undefined || clickedEntryId.id !== todayEntry.id ? (
-                    <p className="font-comic">{todayEntry.title}</p>
+                    <p className="font-bricolage">{todayEntry.title}</p>
                 ) : null
             )}
 

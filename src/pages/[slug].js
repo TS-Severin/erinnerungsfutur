@@ -34,7 +34,7 @@ export default function DateDetailsPage() {
       });
       if (response.ok) {
         await response.json();
-        alert("Gelöscht!")
+        alert("Gelöscht!");
         router.push("/");
       } else {
         console.error(`Error: ${response.status}`);
