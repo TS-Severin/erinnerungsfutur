@@ -3,7 +3,6 @@ import TimelineMonths from "../TimelineMonths/TimelineMonths";
 import TimelineAxis from "../TimelineAxis/TimelineAxis";
 import TimelineToday from "../TimelineToday/TimelineToday";
 import styled from "styled-components";
-import styles from "./Timeline.module.scss";
 import useSWR from "swr";
 
 
@@ -16,17 +15,38 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
 
   return (
     <>
-      <div className={styles.timelineWindowContainer}>
+      <div
+        className="w-full overflow-x-scroll bg-white border-4 py-8"
+      >
+
+
         <div style={{ width: `${timelineZoom}%` }} className="flex flex-col bg-white h-32"
         >
-          <div className={styles.timelineTodayContainer}>
+
+
+          <div
+            className="relative top-[8%] w-full"
+          >
             <TimelineToday entries={entries} previewIsClicked={previewIsClicked} timelineZoom={timelineZoom} />
           </div>
+
+
+
           <div className="relative top-[51%] max-sm:top-[54%] w-full">
             <TimelineAxis timelineZoom={timelineZoom} />
           </div>
+
+
           <StyledTimelineLine $timelineZoom={timelineZoom} />
-          <div className={styles.timelineDotContainer}>
+
+
+
+          <div
+            className="relative  w-full align-middle justify-center top-[57%]"
+
+          >
+
+
 
             {entries &&
               entries.map(({ _id: id, date, color, slug }) => (
@@ -34,7 +54,14 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
               ))}
 
           </div>
-          <div className={styles.timelineMonthContainer}><TimelineMonths timelineZoom={timelineZoom} /></div>
+
+
+          <div
+            className="w-full relative top-[70%] align-middle justify-center">
+
+            <TimelineMonths timelineZoom={timelineZoom} />
+
+          </div>
         </div >
       </div>
     </>
@@ -47,6 +74,8 @@ const StyledTimelineLine = styled.span`
   background-color: grey;
   position: relative;
   top: ${(props) => (props.$timelineZoom / 200 + 60)}%;;
+  
+  
   @media (max-width: 640px) {
     width: 100%;
   height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
