@@ -16,6 +16,8 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
   // Apply GSAP animation when the component mounts
   useGSAP(dotRef);
+  useGSAP(mobileDotRef);
+
 
   // State to track screen width
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -37,6 +39,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
   return (
     <>
+
       {!isSmallScreen && (
         <Link href={`/${slug}`}>
           <StyledTimelineDot
@@ -74,7 +77,6 @@ height: ${(props) => (props.$timelineZoom / 100 + 8)}px;
 width: ${(props) => (props.$timelineZoom / 100 + 8)}px;
 background-color: ${(props) => props.$randomPurple};
 border-radius: 50%;
-display: inline-block;
 z-index: 1000;
 justify-self: center;
 transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
@@ -92,11 +94,11 @@ position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
 overflow: visible;
+z-index: 1000;
 height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
 width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
 background-color: ${(props) => props.$randomPurple};
 border-radius: 50%;
-display: inline-block;
 justify-self: center;
 transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
 transition-timing-function: ease-out;
