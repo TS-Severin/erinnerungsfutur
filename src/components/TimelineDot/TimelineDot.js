@@ -14,10 +14,11 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
   const dotRef = useRef(null);
   const mobileDotRef = useRef(null);
 
-  // Apply GSAP animation when the component mounts
-  useGSAP(dotRef);
-  useGSAP(mobileDotRef);
 
+  // Apply GSAP animation when the component mounts
+
+  useGSAP(dotRef);
+  // useGSAP(mobileDotRef);
 
   // State to track screen width
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -30,29 +31,34 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
   // Add event listener for screen resize
   useEffect(() => {
     updateScreenSize(); // Initial check
+
     window.addEventListener('resize', updateScreenSize);
     return () => {
       window.removeEventListener('resize', updateScreenSize);
+
     };
   }, []); // Empty dependency array to run only on mount and unmount
+
+  var ConditionalLink = !isSmallScreen ? Link : "div";
 
 
   return (
     <>
 
-      {!isSmallScreen && (
-        <Link href={`/${slug}`}>
-          <StyledTimelineDot
-            key={id}
-            ref={dotRef}
-            $randomPurple={randomPurple}
-            $percentOfYear={percentOfYear}
-            onMouseEnter={() => handlePreviewClick(id)}
-            $timelineZoom={timelineZoom}
-          />
-        </Link>
-      )}
-      {isSmallScreen && (
+      {/* {!isSmallScreen && ( */}
+      <ConditionalLink href={`/${slug}`}>
+        <StyledTimelineDot
+          key={id}
+          ref={dotRef}
+          $randomPurple={randomPurple}
+          $percentOfYear={percentOfYear}
+          onMouseEnter={!isSmallScreen ? () => handlePreviewClick(id) : undefined}
+          onClick={isSmallScreen ? () => handlePreviewClick(id) : undefined}
+          $timelineZoom={timelineZoom}
+        />
+      </ConditionalLink>
+      {/* )} */}
+      {/* {isSmallScreen && (
 
         <StyledTimelineDotMobile
           key={id}
@@ -63,10 +69,12 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
           $timelineZoom={timelineZoom}
         />
 
-      )}
+      )} */}
     </>
   );
 }
+
+
 
 const StyledTimelineDot = styled.div`
 position: absolute;
@@ -87,25 +95,40 @@ transition-timing-function: ease-out;
   background-color: RGB(255, 131, 250);
   opacity: 0.1;
 }
+
+  @media (max-width: 640px) {
+    position: absolute;
+    left: ${(props) => props.$percentOfYear}%;
+    transform: translateX(-50%);
+    overflow: visible;
+    z-index: 1000;
+    height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+    width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+    background-color: ${(props) => props.$randomPurple};
+    border-radius: 50%;
+    justify-self: center;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
+    transition-timing-function: ease-out;
+  }
+
 `;
 
-const StyledTimelineDotMobile = styled.div`
-position: absolute;
-left: ${(props) => props.$percentOfYear}%;
-transform: translateX(-50%);
-overflow: visible;
-z-index: 1000;
-height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
-width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
-background-color: ${(props) => props.$randomPurple};
-border-radius: 50%;
-justify-self: center;
-transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
-transition-timing-function: ease-out;
-&:hover {
-  height: 24px;
-  width: 24px;
-  background-color: rgb(155, 50, 150);
-}
-`;
-
+// const StyledTimelineDotMobile = styled.div`
+// position: absolute;
+// left: ${(props) => props.$percentOfYear}%;
+// transform: translateX(-50%);
+// overflow: visible;
+// z-index: 1000;
+// height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+// width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+// background-color: ${(props) => props.$randomPurple};
+// border-radius: 50%;
+// justify-self: center;
+// transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
+// transition-timing-function: ease-out;
+// &:hover {
+//   height: 24px;
+//   width: 24px;
+//   background-color: rgb(155, 50, 150);
+// }
+// `;
