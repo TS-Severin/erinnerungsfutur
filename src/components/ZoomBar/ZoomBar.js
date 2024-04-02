@@ -3,7 +3,6 @@ import { Slider } from "@nextui-org/slider";
 export default function ZoomBar({ handleZoomChange }) {
 
     const handleChange = (value) => {
-        console.log("Slider value changed:", value);
         handleZoomChange(value);
 
     };

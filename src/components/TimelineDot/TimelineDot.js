@@ -45,7 +45,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
   return (
     <>
 
-      {/* {!isSmallScreen && ( */}
+
       <ConditionalLink href={`/${slug}`}>
         <StyledTimelineDot
           key={id}
@@ -57,19 +57,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
           $timelineZoom={timelineZoom}
         />
       </ConditionalLink>
-      {/* )} */}
-      {/* {isSmallScreen && (
 
-        <StyledTimelineDotMobile
-          key={id}
-          ref={mobileDotRef}
-          $randomPurple={randomPurple}
-          $percentOfYear={percentOfYear}
-          onClick={() => handlePreviewClick(id)}
-          $timelineZoom={timelineZoom}
-        />
-
-      )} */}
     </>
   );
 }
@@ -92,7 +80,7 @@ transition-timing-function: ease-out;
 &:hover {
   height: 12px;
   width: 12px;
-  background-color: RGB(255, 131, 250);
+  background-color: red;
   opacity: 0.1;
 }
 
@@ -107,8 +95,15 @@ transition-timing-function: ease-out;
     background-color: ${(props) => props.$randomPurple};
     border-radius: 50%;
     justify-self: center;
-    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
-    transition-timing-function: ease-out;
+    transition: width 0.1s ease, height 0.1s ease, background-color 0.1s ease; 
+    transition-timing-function: ease-in;
+    &:hover {
+      height: 12px;
+      width: 12px;
+      background-color: red;
+      opacity: 0.1;
+      box-shadow: inset 0px 0px 1px 1px grey;
+    }
   }
 
 `;
