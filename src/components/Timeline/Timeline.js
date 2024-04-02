@@ -4,7 +4,7 @@ import TimelineAxis from "../TimelineAxis/TimelineAxis";
 import TimelineToday from "../TimelineToday/TimelineToday";
 import styled from "styled-components";
 import useSWR from "swr";
-
+import { useState, useEffect } from 'react';
 
 
 
@@ -13,12 +13,22 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
   //   if (error) return <div>Error fetching data</div>;
   if (isLoading) return <div>Loading...</div>;
 
+  // turns on overflow-visibility of dots when flying in and turns on overflow-x-scroll afterwards
+
+  const [overflowVisible, setOverflowVisible] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOverflowVisible(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div
-        className="w-full overflow-x-scroll bg-white border-4 py-8"
+        className={`w-full overflow-x-${overflowVisible ? 'visible' : 'scroll'} bg-white border-4 py-8`}
       >
-
 
         <div style={{ width: `${timelineZoom}%` }} className="flex flex-col bg-white h-32"
         >
@@ -71,7 +81,7 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
 const StyledTimelineLine = styled.span`
   width: 100%;
   height: ${(props) => (props.$timelineZoom / 250 + 1)}px;
-  background-color: grey;
+  background-color: red;
   position: relative;
   top: ${(props) => (props.$timelineZoom / 200 + 60)}%;;
   
