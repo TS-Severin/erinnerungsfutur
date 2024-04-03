@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import { SWRConfig } from "swr";
 import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";

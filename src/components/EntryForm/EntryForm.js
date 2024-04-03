@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import Tiptap from "../Tiptap/Tiptap";
 
 export default function EntryForm({ onHandleSubmit, update, entries }) {
 
@@ -48,11 +49,12 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
                         placeholder="Vorname Nachname" />
 
 
-                    <label htmlFor="textarea" className="font-bricolage mb-2 mt-2">
+                    <label htmlFor="text" className="font-bricolage mb-2 mt-2">
                         Text:</label>
                     <textarea rows="20" cols="33" id="text" name="text" required
                         defaultValue={entries.text}
                         placeholder="kompletter Text" />
+                    <Tiptap />
 
 
                     <button type="submit" className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">Speichern</button>
