@@ -6,7 +6,7 @@ import { useState } from "react";
 import EntryForm from "@/components/EntryForm/EntryForm";
 
 
-export default function DateDetailsPage() {
+export default function DateDetailsPage({ handleTiptapText }) {
   const [isEditMode, setIsEditMode] = useState(false);
   const { user, error, isLoading } = useUser();
   const router = useRouter()
@@ -70,7 +70,7 @@ export default function DateDetailsPage() {
           <>
             <button className="font-bricolage mr-8 mb-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" onClick={handleDelete}>Eintrag löschen</button>
             <button onClick={() => setIsEditMode(!isEditMode)} className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">{isEditMode ? "Schließen" : "Eintrag bearbeiten"}</button>
-            {isEditMode && <EntryForm onHandleSubmit={handleEdit} entries={entries} update />}
+            {isEditMode && <EntryForm handleTiptapText={handleTiptapText} onHandleSubmit={handleEdit} entries={entries} update />}
 
           </>
         ) : null}

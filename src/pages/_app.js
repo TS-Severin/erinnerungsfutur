@@ -55,6 +55,20 @@ export default function App({ Component, pageProps }) {
     setTimelineZoom(value);
   }
 
+  // INITIALIZING STATE FOR TIPTAP INPUT
+  const [tiptapText, setTiptapText] = useState("");
+
+  // SETTING STATE FOR TIPTAP INPUT
+  const handleTiptapText = (newContent) => {
+    console.log("Updating tiptapText with:", newContent);
+    setTiptapText(newContent);
+  }
+
+  // Log the state each time it changes
+  useEffect(() => {
+    console.log("----> TIPTAPTEXT: ", tiptapText);
+  }, [tiptapText]);
+
 
   // SETTING CLICK STATE
 
@@ -86,6 +100,7 @@ export default function App({ Component, pageProps }) {
               entries={entries}
               handleZoomChange={handleZoomChange}
               timelineZoom={timelineZoom}
+              handleTiptapText={handleTiptapText}
             />
 
           </UserProvider>

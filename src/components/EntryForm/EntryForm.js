@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import Tiptap from "../Tiptap/Tiptap";
 
-export default function EntryForm({ onHandleSubmit, update, entries }) {
+export default function EntryForm({ onHandleSubmit, update, entries, handleTiptapText }) {
 
     const { date, slug, datestring, title, author, text } = entries;
 
@@ -54,7 +54,7 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
                     <textarea rows="20" cols="33" id="text" name="text" required
                         defaultValue={entries.text}
                         placeholder="kompletter Text" />
-                    <Tiptap entries={entries} onSubmit={(event) => onHandleSubmit(event)} />
+                    <Tiptap entries={entries} onSubmit={(event) => onHandleSubmit(event)} handleTiptapText={handleTiptapText} />
 
 
                     <button type="submit" className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">Speichern</button>

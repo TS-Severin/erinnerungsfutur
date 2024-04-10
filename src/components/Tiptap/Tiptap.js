@@ -4,7 +4,7 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Toolbar from './Toolbar'
 
-const Tiptap = ({ onSubmit, entries }) => {
+const Tiptap = ({ onSubmit, entries, handleTiptapText }) => {
     const { date, slug, datestring, title, author, text } = entries;
     const handleSubmit = (event) => { onSubmit(event) }
 
@@ -22,9 +22,15 @@ const Tiptap = ({ onSubmit, entries }) => {
 
         content: `${entries.text}`,
 
-        // onUpdate: ({ editor }) => {
-        //     handleSubmit(editor.getHTML());
-        // },
+        onUpdate: ({ editor }) => {
+            handleTiptapText(editor.getHTML());
+        },
+
+
+        onUpdate: ({ editor }) => {
+            console.log(editor.getHTML());
+        },
+
     });
 
 
