@@ -3,10 +3,14 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Toolbar from './Toolbar'
+import { useEffect } from 'react'
 
-const Tiptap = ({ onSubmit, entries, handleTiptapText }) => {
-    const { date, slug, datestring, title, author, text } = entries;
-    const handleSubmit = (event) => { onSubmit(event) }
+const Tiptap = ({ handleTiptapText, tiptapText }) => {
+
+    const handleUpdate = ({ editor }) => {
+        const htmlContent = editor.getHTML();
+        handleTiptapText(htmlContent); // Pass the updated content to the parent component
+    };
 
     const editor = useEditor({
         extensions: [
@@ -20,19 +24,14 @@ const Tiptap = ({ onSubmit, entries, handleTiptapText }) => {
 
         },
 
-        content: `${entries.text}`,
-
-        onUpdate: ({ editor }) => {
-            handleTiptapText(editor.getHTML());
-        },
-
-
-        onUpdate: ({ editor }) => {
-            console.log(editor.getHTML());
-        },
+        onUpdate: handleUpdate,
+        content: `${tiptapText}`,
 
     });
 
+    if (!editor) {
+        return null;
+    }
 
 
     return (

@@ -6,7 +6,7 @@ import { useState } from "react";
 import EntryForm from "@/components/EntryForm/EntryForm";
 
 
-export default function DateDetailsPage({ handleTiptapText }) {
+export default function DateDetailsPage() {
   const [isEditMode, setIsEditMode] = useState(false);
   const { user, error, isLoading } = useUser();
   const router = useRouter()
@@ -42,16 +42,16 @@ export default function DateDetailsPage({ handleTiptapText }) {
     }
   };
 
-  const handleEdit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+  const handleEdit = async (entry) => {
+    // event.preventDefault();
+    // const formData = new FormData(event.target);
+    // const data = Object.fromEntries(formData);
     const response = await fetch(`/api/${slug}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(entry),
     });
     if (response.ok) {
       mutate();
@@ -70,7 +70,7 @@ export default function DateDetailsPage({ handleTiptapText }) {
           <>
             <button className="font-bricolage mr-8 mb-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" onClick={handleDelete}>Eintrag löschen</button>
             <button onClick={() => setIsEditMode(!isEditMode)} className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">{isEditMode ? "Schließen" : "Eintrag bearbeiten"}</button>
-            {isEditMode && <EntryForm handleTiptapText={handleTiptapText} onHandleSubmit={handleEdit} entries={entries} update />}
+            {isEditMode && <EntryForm onHandleSubmit={handleEdit} entries={entries} update />}
 
           </>
         ) : null}

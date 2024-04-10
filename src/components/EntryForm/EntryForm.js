@@ -1,16 +1,34 @@
-// import { useState } from "react";
+import { useState } from "react";
 import Tiptap from "../Tiptap/Tiptap";
 
-export default function EntryForm({ onHandleSubmit, update, entries, handleTiptapText }) {
+export default function EntryForm({ onHandleSubmit, update, entries }) {
 
     const { date, slug, datestring, title, author, text } = entries;
+
+
+    const [tiptapText, setTiptapText] = useState(entries.text);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Construct the entry object with all form data including Tiptap text
+        const entry = {
+            ...entries,
+            text: tiptapText // Use Tiptap text as part of the entry
+        };
+
+        // Call the onSubmit handler with the constructed entry object
+
+        onHandleSubmit(entry);
+        console.log(entry);
+    };
 
 
 
     return (
         <>
             <div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
-                <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
+                <form className="flex flex-col" onSubmit={handleSubmit}>
                     <h1 className="font-bricolage mb-4 text-xl">
                         {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
@@ -54,7 +72,11 @@ export default function EntryForm({ onHandleSubmit, update, entries, handleTipta
                     <textarea rows="20" cols="33" id="text" name="text" required
                         defaultValue={entries.text}
                         placeholder="kompletter Text" />
-                    <Tiptap entries={entries} onSubmit={(event) => onHandleSubmit(event)} handleTiptapText={handleTiptapText} />
+
+                    <Tiptap
+                        handleTiptapText={setTiptapText} // Pass setter function for Tiptap text
+                        tiptapText={tiptapText} // Pass current Tiptap text state
+                    />
 
 
                     <button type="submit" className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">Speichern</button>

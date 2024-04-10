@@ -3,7 +3,7 @@ import useSWR from "swr";
 import EntryForm from "../EntryForm/EntryForm";
 import { useState } from "react";
 
-export default function AdminBar({ entries, handleTiptapText }) {
+export default function AdminBar({ entries }) {
     const { mutate } = useSWR("/api");
     const [isAddMode, setIsAddMode] = useState(false);
 
@@ -39,7 +39,7 @@ export default function AdminBar({ entries, handleTiptapText }) {
                 <Link className="font-bricolage mr-8 p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out" href="/api/auth/logout">Logout</Link>
 
                 <button onClick={() => setIsAddMode(!isAddMode)} className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">{isAddMode ? "Schließen" : "Neuer Eintrag"}</button>
-                {isAddMode && <EntryForm entries={entries} onHandleSubmit={handleSubmit} handleTiptapText={handleTiptapText} />}
+                {isAddMode && <EntryForm entries={entries} onHandleSubmit={handleSubmit} />}
 
 
 
