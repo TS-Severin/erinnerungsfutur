@@ -30,19 +30,17 @@ export default function TimelinePreview({ entries, previewIsClicked }) {
     // const { title, author, date, datestring, slug, } = clickedEntry;
     // console.log("error clickedentryid:", clickedEntryId, entries);
     const previewText = GetPreviewText(clickedEntry.text);
-    // console.log(previewText);
 
-    // console.log("TITLE", clickedEntry);
+    console.log(previewText);
 
-    // const previewTextMarkup = dangerouslySetInnerHTML = { createMarkup(text) };
+    // const previewTextMarkup = dangerouslySetInnerHTML = { createMarkup(previewText) };
 
     return (
         <>
             <div className="relative">
                 <h1 className="font-bricolage font-extralight text-2xl">{`${clickedEntry.datestring}`}</h1>
                 <h1 className="font-bricolage font-extralight text-2xl pt-4">{`${clickedEntry.title}`}</h1>
-                <p className="max-sm:hidden font-cormorant pt-4">
-                    {`${previewText} ... `}</p>
+                <p className="max-sm:hidden font-cormorant pt-4" dangerouslySetInnerHTML={{ __html: `${previewText} ...` }} />
                 <Link href={`/${clickedEntry.slug}`} className="font-cormorant underline max-sm:pt-8">
                     ganzen Text lesen
                 </Link>

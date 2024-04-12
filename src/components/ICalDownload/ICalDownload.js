@@ -8,7 +8,17 @@ export default function ICalDownload({ date, title, iCalSlug, text }) {
     // ICAL LOGIC
     // get preview text for ical-file
     const previewText = GetPreviewText(text);
-    const iCalText = `${text} ... Weiter lesen unter dem Link`;
+
+    // function for removing html-tags for the calender preview on clientsite calendars
+    function removeHtmlTags(input) {
+        return input.replace(/<[^>]*>/g, '');
+    }
+
+    const previewTextWithoutHtml = removeHtmlTags(previewText);
+
+
+    const iCalText = `${previewTextWithoutHtml} ... Weiter lesen unter dem Link`;
+
     // ical download
     // define function that generates ical files
     const kalender = GenerateICalFiles(date, title, iCalSlug, iCalText)

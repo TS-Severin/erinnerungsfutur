@@ -1,7 +1,13 @@
 const { nextui } = require("@nextui-org/react");
+const path = require('path');
+
+
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',

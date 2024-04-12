@@ -1,15 +1,33 @@
-// import { useState } from "react";
+import { useState } from "react";
+import Tiptap from "../Tiptap/Tiptap";
 
 export default function EntryForm({ onHandleSubmit, update, entries }) {
 
     const { date, slug, datestring, title, author, text } = entries;
 
 
+    const [tiptapText, setTiptapText] = useState(entries.text);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Construct the entry object with all form data including Tiptap text
+        const entry = {
+            ...entries,
+            text: tiptapText // Use Tiptap text as part of the entry
+        };
+
+        // Call the onSubmit handler with the constructed entry object
+
+        onHandleSubmit(entry);
+    };
+
+
 
     return (
         <>
             <div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
-                <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
+                <form className="flex flex-col" onSubmit={handleSubmit}>
                     <h1 className="font-bricolage mb-4 text-xl">
                         {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
                     </h1>
@@ -48,11 +66,15 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
                         placeholder="Vorname Nachname" />
 
 
-                    <label htmlFor="textarea" className="font-bricolage mb-2 mt-2">
+                    <label htmlFor="text" className="font-bricolage mb-2 mt-2">
                         Text:</label>
-                    <textarea rows="20" cols="33" id="text" name="text" required
-                        defaultValue={entries.text}
-                        placeholder="kompletter Text" />
+
+
+                    <Tiptap
+                        handleTiptapText={setTiptapText} // Pass setter function for Tiptap text
+                        tiptapText={tiptapText} // Pass current Tiptap text state
+                        label="Text"
+                    />
 
 
                     <button type="submit" className="font-bricolage p-4 rounded-3xl shadow-md hover:bg-fuchsia-300 hover:shadow-inner active:scale-75 transition ease-in-out">Speichern</button>
@@ -63,50 +85,3 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
 }
 
 
-{/* <>
-<div className="items-center justify-between mt-4 ml-0 mr-0 mb-8 p-8 bg-white border-4 rounded-3xl shadow-xl">
-    <form className="flex flex-col" onSubmit={(event) => onHandleSubmit(event)}>
-        <h1 className="font-bold">
-            {update ? "Eintrag bearbeiten" : "Neuer Eintrag"}
-        </h1>
-        <label htmlFor="date">
-            date:
-            <input type="text" id="date" name="date" required
-                {...(update ? { defaultValue: formData.date, onChange: (e) => handleInputChange(e, "date") } : { placeholder: "jjjj-mm-tt" })} />
-        </label>
-
-        <label htmlFor="slug">
-            slug:
-            <input type="text" id="slug" name="slug" required
-                {...(update ? { value: slug } : { placeholder: "titel-des-eintrags" })} />
-        </label>
-
-        <label htmlFor="datestring">
-            datestring:
-            <input type="text" id="datestring" name="datestring" required
-                {...(update ? { value: slug } : { placeholder: "Tag. Monat, z. B.: 26. März" })} />
-        </label>
-
-
-        <label htmlFor="title">
-            title:
-            <input type="text" id="title" name="title" required
-                {...(update ? { value: title } : { placeholder: "Titel des Ereignisses" })} />
-        </label>
-
-        <label htmlFor="author">
-            author:
-            <input type="text" id="autor" name="autor" required
-                {...(update ? { value: author } : { placeholder: "Vorname Nachname" })} />
-        </label>
-
-        <label htmlFor="textarea">
-            text:</label>
-        <textarea rows="5" cols="33" id="text" name="text" required
-            {...(update ? { value: text } : { placeholder: "kompletter Text" })} />
-
-
-        <button type="submit">Submit</button>
-    </form>
-</div>
-</> */}

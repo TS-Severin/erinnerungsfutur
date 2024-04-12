@@ -42,16 +42,16 @@ export default function DateDetailsPage() {
     }
   };
 
-  const handleEdit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+  const handleEdit = async (entry) => {
+    // event.preventDefault();
+    // const formData = new FormData(event.target);
+    // const data = Object.fromEntries(formData);
     const response = await fetch(`/api/${slug}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(entry),
     });
     if (response.ok) {
       mutate();

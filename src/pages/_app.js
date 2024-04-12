@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import { SWRConfig } from "swr";
 import Navigation from "@/components/Navigation/Navigation";
 import { useEffect } from "react";
@@ -54,7 +54,6 @@ export default function App({ Component, pageProps }) {
   const handleZoomChange = (value) => {
     setTimelineZoom(value);
   }
-
 
   // SETTING CLICK STATE
 
