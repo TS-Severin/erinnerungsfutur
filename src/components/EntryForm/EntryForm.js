@@ -68,13 +68,12 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
 
                     <label htmlFor="text" className="font-bricolage mb-2 mt-2">
                         Text:</label>
-                    <textarea rows="20" cols="33" id="text" name="text" required
-                        defaultValue={entries.text}
-                        placeholder="kompletter Text" />
+
 
                     <Tiptap
                         handleTiptapText={setTiptapText} // Pass setter function for Tiptap text
                         tiptapText={tiptapText} // Pass current Tiptap text state
+                        label="Text"
                     />
 
 
