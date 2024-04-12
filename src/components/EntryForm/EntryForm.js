@@ -20,7 +20,6 @@ export default function EntryForm({ onHandleSubmit, update, entries }) {
         // Call the onSubmit handler with the constructed entry object
 
         onHandleSubmit(entry);
-        console.log(entry);
     };
 
 

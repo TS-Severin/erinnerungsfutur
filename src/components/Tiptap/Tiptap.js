@@ -12,6 +12,8 @@ const Tiptap = ({ handleTiptapText, tiptapText }) => {
         handleTiptapText(htmlContent); // Pass the updated content to the parent component
     };
 
+
+
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -25,7 +27,7 @@ const Tiptap = ({ handleTiptapText, tiptapText }) => {
         },
 
         onUpdate: handleUpdate,
-        content: `${tiptapText}`,
+        content: `${tiptapText !== undefined ? tiptapText : 'Neuer Eintrag'}`,
 
     });
 
