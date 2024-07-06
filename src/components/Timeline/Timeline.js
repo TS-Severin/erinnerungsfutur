@@ -10,8 +10,7 @@ import { useState, useEffect } from 'react';
 
 export default function Timeline({ handlePreviewClick, previewIsClicked, timelineZoom }) {
   const { data: entries, isLoading } = useSWR("/api");
-  //   if (error) return <div>Error fetching data</div>;
-  if (isLoading) return <div>Loading...</div>;
+
 
   // turns on overflow-visibility of dots when flying in and turns on overflow-x-scroll afterwards
 
@@ -23,6 +22,9 @@ export default function Timeline({ handlePreviewClick, previewIsClicked, timelin
 
     return () => clearTimeout(timer);
   }, []);
+
+  //   if (error) return <div>Error fetching data</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
