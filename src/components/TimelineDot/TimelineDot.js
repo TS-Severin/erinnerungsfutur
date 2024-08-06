@@ -18,7 +18,7 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
   // Apply GSAP animation when the component mounts
 
   useGSAP(dotRef);
-  // useGSAP(mobileDotRef);
+  useGSAP(mobileDotRef);
 
   // State to track screen width
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -65,46 +65,51 @@ export default function TimelineDot({ id, date, slug, handlePreviewClick, timeli
 
 
 const StyledTimelineDot = styled.div`
+
+opacity: 0;
 position: absolute;
 left: ${(props) => props.$percentOfYear}%;
 transform: translateX(-50%);
+transform: translateY(-1px);
 overflow: visible;
-height: ${(props) => (props.$timelineZoom / 100 + 8)}px;
-width: ${(props) => (props.$timelineZoom / 100 + 8)}px;
-background-color: ${(props) => props.$randomPurple};
+height: ${(props) => (props.$timelineZoom / 100 + 10)}px;
+width: ${(props) => (props.$timelineZoom / 100 + 10)}px;
+background-color: gray;
+box-shadow: rgb(0 0 0 / 20%) 0 0 ${(props) => (props.$timelineZoom / 100 + 10)}px;
 border-radius: 50%;
 z-index: 1000;
 justify-self: center;
-transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease; 
-transition-timing-function: ease-out;
+transition: all 3s ease;
 &:hover {
-  height: 12px;
-  width: 12px;
-  background-color: red;
-  opacity: 0.1;
+  background-color: #7638c8;
+  box-shadow: rgb(118, 56, 200)
+  0px 7px 29px ${(props) => (props.$timelineZoom / 100 + 10)}px;
+  transition: all 0.01s ease;
+
 }
 
   @media (max-width: 640px) {
+    scale: 1;
+    opacity: 1;
     position: absolute;
-    left: ${(props) => props.$percentOfYear}%;
-    transform: translateX(-50%);
-    overflow: visible;
-    z-index: 1000;
-    height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
-    width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
-    background-color: ${(props) => props.$randomPurple};
-    border-radius: 50%;
-    justify-self: center;
-    transition: width 0.1s ease, height 0.1s ease, background-color 0.1s ease; 
-    transition-timing-function: ease-in;
-    &:hover {
-      height: 12px;
-      width: 12px;
-      background-color: red;
-      opacity: 0.1;
-      box-shadow: inset 0px 0px 1px 1px grey;
-    }
-  }
+left: ${(props) => props.$percentOfYear}%;
+transform: translateX(-50%);
+overflow: visible;
+height: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+width: ${(props) => (props.$timelineZoom / 100 + 16)}px;
+background-color: gray;
+box-shadow: rgb(0 0 0 / 20%) 0 0 ${(props) => (props.$timelineZoom / 100 + 8)}px;
+border-radius: 50%;
+z-index: 1000;
+justify-self: center;
+transition: all 3s ease;
+&:hover {
+  background-color: #7638c8;
+  box-shadow: rgb(118, 56, 200)
+  0px 7px 29px ${(props) => (props.$timelineZoom / 100 + 8)}px;
+  transition: all 0.01s ease;
+
+}
 
 `;
 
